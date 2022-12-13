@@ -1,0 +1,31 @@
+{
+  "summary": "Payment (Crypto)",
+  "value": {
+    "status": "P",
+    "methods": [
+        {
+            "message": {
+                "source": 3,
+                "code": "GwResultOk",
+                "message": "Successfull authorization"
+            },
+            "cryptoInfo": {
+                "coinValue": "0.00009072",
+                "coinRateCurrency": "220,467.67",
+                "coinAddr": "1PLm8XMtKPESvxVCXz2aeQnVP14JEdG5v",
+                "coinQRCodeUrl": "https://services.bancryp.com/payment/qrcode?coin=BTC&address=1PLm8XMtKPESvxVCXz2aeQnVP14JEdG5v&amount=0.00009072&quote=31767&id=31767&theme=light",
+                "coin": "BTC"
+            },
+            "methodType": "E",
+            "status": "C",
+            "methodId": 0,
+            "operationId": "O000213489AA0001623900",
+            "methodKey": "13489AA000128E000"
+        }
+    ],
+    "paymentKey": "13489AA000128E0",
+    "partnerUniqueId": "#035",
+    "code": 1,
+    "operationId": "O000213489AA00016239"
+}
+}

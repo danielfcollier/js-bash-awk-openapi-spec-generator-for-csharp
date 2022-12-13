@@ -1,0 +1,28 @@
+{
+  "summary": "Payment (Pix)",
+  "value": {
+    "status": "P",
+    "methods": [
+        {
+            "message": {
+                "source": 3,
+                "code": "GwResultOk",
+                "message": "Successfull authorization"
+            },
+            "pixInfo": {
+                "qrContent": "https://dev.tuna.uy/processing/",
+                "qrImage": "iVBORw0KGgoAAAANSUhEUgAAAuQAAALkAQAAAABv3x3IAAACV0lEQVR4nO3YQVKFMAwA0N6A+9+SG+DoB5KmFXVGN/ZlwdA2eekun9+OP4y90el0Op1Op9PpdDqdTqfT6XQ6nU6n0+l0+n/UW40tH7znvh6z01kZnU6n0+lr67F/Lc9H6GdVWs7K6HQ6nU6n31LAeVZfy3z6aRmdTqfT6fQhLZZnSgSdTqfT6fQf69sr7Rrdcdry1zCdTqfT6fSJPixnX8OzC8wUOp1Op9NX1kt09Q+PsYxOp9Pp9OX1WXykD2/bq/SLWjqdTqfT19af/kyOFufeLK90pNPpdDp9XX2Yxl19LPNbyWt0Op1Op9MvvfX13Z/JOSX/j1wr6HQ6nU6n97mFi9PhFqXFka9Cp9PpdPrK+jChxxazgV32+tvS6XQ6nb6qnlsEd8VZGo/xUpNmdDqdTqevque0LndYtr5F15FOp9PpdHraH75o0/z+WEbHcpphOp1Op9Ppc6T1cUzjm78J6HQ6nU5fRo/S8oFbzP3utN21Ww/T6XQ6nU4/C+7ip2Z7Ps0j/mFq0+l0Op2+lj6TykFcoCzjenQ6nU6n02vBdh+UZeSVCJhOp9Pp9MX1WURVntVxug15dDqdTqfTU0bEbGrvt773bcfedDqdTqevrXdDNwrKcD5b7PODrNDpdDqdvrgeXBnEwxAvcc10Op1Op9Ppn+tPLW6kDW90Op1Op9MHPQrK8txr+Rs4aul0Op1Op6f9aNYN55M7JnnlUnQ6nU6nL6+X2LKZ96LZlsuOGnQ6nU6nr6v/ftDpdDqdTqfT6XQ6nU6n0+l0Op1Op9PpdPo/0t8ADLJatbi4LRUAAAAASUVORK5CYII="
+            },
+            "methodType": "D",
+            "status": "C",
+            "methodId": 0,
+            "operationId": "O000113489AA00000D1300",
+            "methodKey": "13489AA00000BCA00"
+        }
+    ],
+    "paymentKey": "13489AA00000BCA",
+    "partnerUniqueId": "#032",
+    "code": 1,
+    "operationId": "O000113489AA00000D13"
+  }
+}

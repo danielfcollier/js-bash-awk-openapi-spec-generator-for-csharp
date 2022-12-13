@@ -1,0 +1,10 @@
+{
+  "summary": "Response Example",
+  "value": {
+    "token": "ct_NjJmM2QxOTUtYTM4OS00YmYyLTg4MDAtOTE3YzY1NzM0NmE30",
+    "brand": "Visa",
+    "validFor": null,
+    "code": 1,
+    "message": null
+  }
+}

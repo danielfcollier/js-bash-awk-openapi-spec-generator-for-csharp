@@ -1,0 +1,66 @@
+{
+  "0": {
+    "status": "Started",
+    "description": "The transaction of this method has started, but no transactions have been processed yet."
+  },
+  "1": {
+    "status": "Authorized",
+    "description": "The transaction of this method has been authorized but not yet captured. The credit limit has been reserved on the credit card."
+  },
+  "2": {
+    "status": "Captured",
+    "description": "The transaction of this payment method has been captured, and funds are secured."
+  },
+  "3": {
+    "status": "Refunded",
+    "description": "The transaction of this payment method has been refunded."
+  },
+  "4": {
+    "status": "Denied",
+    "description": "The transaction of this payment method has been denied either by the issuing bank, acquirer, or anti-fraud tool."
+  },
+  "5": {
+    "status": "canceled",
+    "description": "The transaction of this payment method has been canceled after being previously authorized."
+  },
+  "6": {
+    "status": "Abandoned",
+    "description": "The transaction of this payment method has been abandoned. It remained with  the Started status for too long, without changing to another status in the meantime."
+  },
+  "7": {
+    "status": "Chargeback",
+    "description": "The transaction of this payment method has been reported as chargeback."
+  },
+  "8": {
+    "status": "MoneyReceived",
+    "description": "The funds of the transaction of this payment method have been transferred to the store."
+  },
+  "9": {
+    "status": "PartialRefunded",
+    "description": "The transaction of this payment method has been partially refunded."
+  },
+  "A": {
+    "status": "Error",
+    "description": "There was an error while processing the transaction of this payment method. This status is followed by a message with more details about the error."
+  },
+  "B": {
+    "status": "RedFlag",
+    "description": "The system explicitly marked this transaction as a major issue that should be investigated. This is a rare status. You don't need to worry about it while integrating with Tuna."
+  },
+  "C": {
+    "status": "PendingCapture",
+    "description": "For some reason, the transaction of this payment method could not be captured. The system will automatically retry to capture it later."
+  },
+  "D": {
+    "status": "PendingCancel",
+    "description": "For some reason, the transaction of this payment method could not be canceled. The system will automatically retry to cancel it later."
+  },
+  "P": {
+    "status": "Pending",
+    "description": "The system is waiting for the result of another process, such as anti-fraud analysis, to complete the transaction. Whether the transaction has already been authorized or not depends on how your flows are configured."
+  },
+  "N": {
+    "status": "NotProcessed",
+    "description": "This payment method will not be processed. This status is final."
+  }
+}

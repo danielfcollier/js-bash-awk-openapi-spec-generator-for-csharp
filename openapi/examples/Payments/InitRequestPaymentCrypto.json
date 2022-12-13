@@ -1,0 +1,42 @@
+{
+  "summary": "Payment (Crypto)",
+  "value": {
+    "partnerUniqueId": "#035",
+    "customer": {
+        "id": "7",
+        "email": "maju.cheapetta@synapcom.com.br",
+        "document": "744.479.870-23",
+        "documentType": "CPF",
+        "name": "Maju Cheapetta"
+    },
+    "paymentItems": {
+        "items": [
+            {
+                "amount": 20,
+                "detailUniqueId": "A01",
+                "productDescription": "Test product",
+                "itemQuantity": 1
+            }
+        ]
+    },
+    "paymentData": {
+        "paymentMethods": [
+            {
+                "paymentMethodType": "E",
+                "amount": 20
+            }
+        ],
+        "deliveryAddress": {
+            "street": "Rua João Longo",
+            "number": "1004",
+            "neighborhood": "Jandira",
+            "city": "São Paulo",
+            "state": "SP",
+            "postalCode": "06608-420",
+            "phone": "(11) 6536-8864",
+            "country": "BR"
+        },
+        "countryCode": "BR"
+    }
+  }
+}

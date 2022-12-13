@@ -1,0 +1,29 @@
+{
+  "summary": "Response Example",
+  "value": {
+    "tokens": [
+      {
+        "token": "ct_NjJmM2QxOTUtYTM4OS00YmYyLTg4MDAtOTE3YzY1NzM0NmE30",
+        "brand": "VISA",
+        "cardHolderName": "Captured",
+        "expirationMonth": 12,
+        "expirationYear": 2023,
+        "maskedNumber": "411111xxxxxx1111   ",
+        "singleUse": false,
+        "data": null
+      },
+      {
+        "token": "ct_MjlkZjgwMTgtMmVhMi00MjRlLTliNDAtNWVhMmUyYzU2NWE40",
+        "brand": "VISA",
+        "cardHolderName": "Authorized",
+        "expirationMonth": 12,
+        "expirationYear": 2022,
+        "maskedNumber": "411111xxxxxx1111   ",
+        "singleUse": false,
+        "data": null
+      }
+    ],
+    "code": 1,
+    "message": null
+  }
+}

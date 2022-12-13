@@ -1,0 +1,26 @@
+{
+  "summary": "Cancel with PartnerUniqueId and Payment Date",
+  "value": {
+    "status": "3",
+    "methods": [
+      {
+        "message": {
+          "source": 1,
+          "code": "GwResultOk",
+          "message": "Successfull authorization"
+        },
+        "methodType": "1",
+        "status": "3",
+        "methodId": 0,
+        "operationId": "O000113489A600000CF000"
+      }
+    ],
+    "code": 1,
+    "message": {
+      "source": 1,
+      "code": "Done",
+      "message": "Operation terminated"
+    },
+    "operationId": "O000113489A600000CF0"
+  }
+}

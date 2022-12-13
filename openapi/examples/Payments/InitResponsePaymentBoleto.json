@@ -1,0 +1,27 @@
+{
+  "summary": "Payment (Boleto)",
+  "value": {
+    "status": "P",
+    "methods": [
+        {
+            "message": {
+                "source": 3,
+                "code": "GwResultOk",
+                "message": "Successfull authorization"
+            },
+            "redirectInfo": {
+                "url": "https://sicadi.com.br/mhouse/boleto/boleto3.php?numero_banco=341-7&local_pagamento=PAG%C1VEL+EM+QUALQUER+BANCO+AT%C9+O+VENCIMENTO&cedente=Tuna&data_documento=30%2F3%2F2022&numero_documento=DF+00113&especie=&aceite=N&data_processamento=30%2F3%2F2022&uso_banco=&carteira=179&especie_moeda=Real&quantidade=&valor=&vencimento=19%2F4%2F2022&agencia=0049&codigo_cedente=10201-5&meunumero=00010435&valor_documento=20%2C0&instrucoes=Taxa+de+visita+de+suporte%0D%0AAp%F3s+o+vencimento+R%24+0%2C80+ao+dia&mensagem1=&mensagem2=&mensagem3=ATEN%C7%C3O%3A+N%C3O+RECEBER+AP%D3S+15+DIAS+DO+VENCIMENTO&sacado=&Submit=Enviar"
+            },
+            "methodType": "3",
+            "status": "C",
+            "methodId": 0,
+            "operationId": "O000113489AA00000D1100",
+            "methodKey": "13489AA00000BC800"
+        }
+    ],
+    "paymentKey": "13489AA00000BC8",
+    "partnerUniqueId": "#030",
+    "code": 1,
+    "operationId": "O000113489AA00000D11"
+  }
+}

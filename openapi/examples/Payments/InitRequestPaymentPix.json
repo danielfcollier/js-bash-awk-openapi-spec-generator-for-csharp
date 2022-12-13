@@ -1,0 +1,47 @@
+{
+  "summary": "Payment (Pix)",
+  "value": 	{
+    "partnerUniqueId": "#032",
+    "customer": {
+        "id": "7",
+        "email": "maju.cheapetta@synapcom.com.br",
+        "document": "744.479.870-23",
+        "documentType": "CPF",
+        "name": "Maju Cheapetta"
+    },
+    "paymentItems": {
+        "items": [
+            {
+                "amount": 20,
+                "detailUniqueId": "A01",
+                "productDescription": "Test product",
+                "itemQuantity": 1
+            }
+        ]
+    },
+    "paymentData": {
+        "paymentMethods": [
+            {
+                "paymentMethodType": "D",
+                "amount": 20,
+                "pix": {
+                    "name": "Maju Cheapetta",
+                    "document": "744.479.870-23",
+                    "documentType": "CPF"
+                }
+            }
+        ],
+        "deliveryAddress": {
+            "street": "Rua João Longo",
+            "number": "1004",
+            "neighborhood": "Jandira",
+            "city": "São Paulo",
+            "state": "SP",
+            "postalCode": "06608-420",
+            "phone": "(11) 6536-8864",
+            "country": "BR"
+        },
+        "countryCode": "BR"
+    }
+  }
+}

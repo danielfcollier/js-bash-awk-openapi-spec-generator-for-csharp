@@ -1,0 +1,64 @@
+{
+  "summary": "Get PF",
+  "value": {
+    "merchant": {
+      "id": 85,
+      "externalId": "##001",
+      "document": "75730568002",
+      "documentType": "cpf",
+      "name": "Natalia Cheapetta",
+      "fantasyName": "",
+      "countryId": 1,
+      "statusId": "1",
+      "paymentBlocked": false,
+      "registrationDate": "2022-03-16T00:00:00",
+      "condition": "1",
+      "websiteUrl": "www.synapcom.com.br",
+      "acceptedContract": true,
+      "multiStore": false,
+      "paymentByMain": true,
+      "birthday": "1985-01-01T00:00:00",
+      "occupation": "Desenvolvedor de Software",
+      "motherName": "Salete Cheapetta",
+      "pixKeyType": "1",
+      "pixKey": "757.305.680-02",
+      "configuration": {
+        "frontEnd": {
+          "color": "#000000"
+        },
+        "registration": {}
+      },
+      "services": [],
+      "serviceRegistrations": [],
+      "contact": {
+        "email": "natalia.cheapetta@synapcom.com.br",
+        "cellPhone": "11980719391"
+      },
+      "legalRepresentative": {},
+      "bankAccounts": [
+        {
+          "externalId": "1",
+          "document": "75730568002",
+          "documentType": "cpf",
+          "accountType": "C",
+          "bankCode": "001",
+          "agency": "2946",
+          "number": "0733-7",
+          "bankName": "Banco Do Brasil S.A (BB)",
+          "services": []
+        }
+      ],
+      "address": {
+        "street": "Rua João Longo",
+        "number": "1004",
+        "complement": "",
+        "neighborhood": "Jandira",
+        "city": "São Paulo",
+        "state": "SP",
+        "postalCode": "06608420"
+      }
+    },
+    "code": 1
+  }
+
+}

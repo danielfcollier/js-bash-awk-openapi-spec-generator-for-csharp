@@ -1,0 +1,111 @@
+{
+  "summary": "Credit Card Payment with Antifraud",
+  "value": {
+    "TokenSession": "0cLqHdd/hJQT9fmnGBTFjunnhjek6oqdv+naWnGz6U2mTAcsbb/U5yFgLZthw5CDgjRj6anCEyckVuanzgVQtGacx+E=",
+    "PartnerUniqueID": "104",
+    "Customer": {
+      "Email": "test2@tuna.uy",
+      "Name": "Test User",
+      "ID": "tuna_123s4",
+      "Document": "919.412.410-85",
+      "DocumentType": "CPF",
+      "Gender": "M",
+      "DaysSinceRegistration": 5,
+      "DaysSinceLastLogin": 2,
+      "DaysSinceLastPasswordChange": null,
+      "DaysSinceLastPurchase": 2,
+      "DaysSinceFirstPurchase": 2
+    },
+    "Vendor": {
+      "MCC": "5947",
+      "Code": "EC-123",
+      "Industry": "Gift shop",
+      "Name": "ACME",
+      "Document": "38.788.507/0001-24",
+      "DocumentType": "CNPJ",
+      "DaysSinceRegistration": 300,
+      "DaysSinceLastSell": 20,
+      "DaysSinceFirstSell": 300
+    },
+    "PaymentItems": {
+      "Items": [
+        {
+          "Amount": 200,
+          "ProductDescription": "item1",
+          "ItemQuantity": 1,
+          "CategoryName": "Category name",
+          "Ean": "A-121321",
+          "AntiFraud": {
+            "DeliveryAddressee": "Antonia",
+            "IsEmailConfirmed": true,
+            "IsPhoneNumberConfirmed": false,
+            "customerSince": 61,
+            "Data": {
+              "CustomField1": "AnyValue",
+              "CustomObject1": {
+                "name": "value"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "PaymentData": {
+      "PaymentMethods": [
+        {
+          "PaymentMethodType": "1",
+          "Amount": 200,
+          "Installments": 1,
+          "SoftDescriptor": "ACME",
+          "CardInfo": {
+            "CardNumber": null,
+            "CardHolderName": "Tuna Test User",
+            "BrandName": "Master",
+            "ExpirationMonth": null,
+            "ExpirationYear": null,
+            "Token": "11e02526-e82c-4ac1-b509-fa459b205bfd",
+            "TokenProvider": "Tuna",
+            "TokenSingleUse": 0,
+            "SaveCard": false,
+            "BillingInfo": {
+              "Document": "919.412.410-85",
+              "DocumentType": "CPF",
+              "Address": {
+                "Street": "Ses Av. Das Nações",
+                "Number": "Q811",
+                "Complement": "Bloco G",
+                "Neighborhood": "Brasilia",
+                "City": "Brasilia",
+                "State": "DF",
+                "Country": "BR",
+                "PostalCode": "70429-900",
+                "Phone": "(61) 324 421 21"
+              }
+            }
+          }
+        }
+      ],
+      "Countrycode": "BR",
+      "AntiFraud": {
+        "DeliveryAddressee": "Antonia"
+      },
+      "DeliveryAddress": {
+        "Street": "Ses Av. Das Nações",
+        "Number": "Q811",
+        "Complement": "Bloco H",
+        "Neighborhood": "Brasilia",
+        "City": "Brasilia",
+        "State": "DF",
+        "Country": "BR",
+        "PostalCode": "70429-900",
+        "Phone": "(61) 324 421 21"
+      }
+    },
+    "FrontData": {
+      "SessionID": "6793ef3ab449499abb5fe3999edabde7",
+      "Origin": "WEBSITE",
+      "IpAddress": "192.168.0.5",
+      "CookiesAccepted": true
+    }
+  }
+}

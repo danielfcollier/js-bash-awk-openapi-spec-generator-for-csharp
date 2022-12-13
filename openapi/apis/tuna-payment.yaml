@@ -1,0 +1,414 @@
+openapi: 3.0.1
+
+servers:
+  - url: https://sandbox.tuna-demo.uy
+    description: sandbox
+  - url: https://engine.tunagateway.com
+    description: production
+
+info:
+  title: Tuna Payment API
+  description: |
+    # Introduction
+
+    Tuna Payment API can perform payment operations for a wide variety of payment methods such as
+    Credit Card, Debit Card, Boleto, PIX, 3DS, and Bitcoin.
+
+    We always recommend using our plugins, but be our guest and use the API described below.
+    Tuna is a PCI Level 1 certified company; your data is safe with us.
+
+    Tuna APIs are organized around REST. Our APIs have predictable resource-oriented URLs,
+    accept form-encoded request bodies, return JSON-encoded responses, and use standard HTTP
+    response codes, authentication, and verbs.
+
+    You can use the Tuna APIs in sandbox mode, which does not affect your live data or
+    interact with the banking networks. The API server and keys you use for the request
+    determine whether the request is in production mode or sandbox mode.
+
+    # API REST Guides
+
+    - **API REST**: are you looking for a guide for our APIs? Check out the introduction to the [API REST](/api).
+
+    - **Payment Integration**: do you need to be able to perform secure credit card payments and/or also use other payment methods such as Debit Card, Boleto, PIX, and Bitcoin? Check out how to perform a [Payment Integration](/api/payment-integration) with our [Payment API](/api/payment) and [Token API](/api/token).
+
+    - **Split Integration**: are you looking to set up a marketplace so your merchants will use split payment solutions in your marketplace? Check out how to perform a [Split Integration](/api/split-integration) with our [Merchant API](/api/merchant).
+
+    - **Tuna Codes**: do you need to learn about your codes and status? Please, check out the [Tuna Codes](/api/tuna-codes).
+
+    - **Webhooks Notifications**: learn more about our notifications in the guide [Webhooks Notifications](/api/webhooks-notifications).
+
+    - **Sandbox Environment**: check out for information about test data and a full description of the [Sandbox Environment](/api/sandbox-environment).
+
+    - **Idempotent Requests**: do you require idempotent requests? Take a look how to make [Idempotent Requests](/api/idempotent-requests).
+
+    # Examples
+
+    There are many examples on the right. Please check all that are meaningful to your company.
+
+    # Authentication
+
+    Your first secrets are provided when you sign up for an account:  account name and app token.
+
+    You can generate additional API keys and delete API keys (as you may need to rotate your
+    keys in the future). You authenticate to Tuna APIs by providing your account name and app
+    token key in the request HTTP headers.
+
+    Tuna's sandbox environment uses public keys available to anyone:
+
+    ```yaml
+    "x-tuna-account": "demo"
+    "x-tuna-apptoken": "a3823a59-66bb-49e2-95eb-b47c447ec7a7"
+    ```
+
+  version: v1
+  license:
+    name: MIT License
+    url: https://dev.tuna.uy/api/license
+  # termsOfService: https://dev.tuna.uy/security/privacy-policy
+  # contact:
+  #   name:
+  #   email:
+  #   url:
+  # externalDocs:
+  #   description:
+  #   url:
+
+components:
+  schemas:
+    Account:
+      description: The name of your account.
+      type: string
+
+    AppToken:
+      description: The app token associated with your account.
+      type: string
+      format: uuid
+
+  securitySchemes:
+    Account:
+      type: apiKey
+      in: header
+      name: x-tuna-account
+    AppToken:
+      type: apiKey
+      in: header
+      name: x-tuna-apptoken
+
+security:
+  - Account: []
+    AppToken: []
+
+paths:
+  /api/Payment/Init:
+    post:
+      summary: Init
+      description: |
+        The initial step's to create and perform the payment. The request body
+        contains information regarding the purchase details and the payment
+        method employed. For each payment method, there is a minimum set of
+        required data. Please, refer to the examples on the right to get the
+        meaningful ones for your company.
+
+        Check out how to perform a [Payment Integration](/api/payment-integration)
+        with our [Payment API](/api/payment) and [Token API](/api/token).
+      operationId: Init
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Payments/InitRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Payments/InitRequestTemplate.yaml"
+              Pix:
+                $ref: "../examples/Payments/InitRequestPaymentPix.json"
+              Boleto:
+                $ref: "../examples/Payments/InitRequestPaymentBoleto.json"
+              Crypto:
+                $ref: "../examples/Payments/InitRequestPaymentCrypto.json"
+              Split:
+                $ref: "../examples/Payments/InitRequestPaymentSplit.json"
+              Antifraud:
+                $ref: "../examples/Payments/InitRequestPaymentAntifraud.json"
+              GiftCard:
+                $ref: "../examples/Payments/InitRequestGiftCard.json"
+              ExternalPaypal:
+                $ref: "../examples/Payments/InitRequestExternalPaypal.json"
+              GooglePay:
+                $ref: "../examples/Payments/InitRequestGooglePay.json"
+              MultipleSessionIds:
+                $ref: "../examples/Payments/InitRequestMultipleSessionIds.json"
+              DummyCapturedCreditCard:
+                $ref: "../examples/Payments/InitRequestDummyCapturedCreditCard.json"
+              DummyAuthorizedCreditCard:
+                $ref: "../examples/Payments/InitRequestDummyAuthorizedCreditCard.json"
+              DummyNotAuthorizedCreditCard:
+                $ref: "../examples/Payments/InitRequestDummyNotAuthorizedCreditCard.json"
+              DummyErrorCreditCard:
+                $ref: "../examples/Payments/InitRequestDummyErrorCreditCard.json"
+              DummyInvalidCreditCard:
+                $ref: "../examples/Payments/InitRequestDummyInvalidCreditCard.json"
+              DummyPendingCreditCard:
+                $ref: "../examples/Payments/InitRequestDummyPendingCreditCard.json"
+              DummyExpiredCreditCard:
+                $ref: "../examples/Payments/InitRequestDummyExpiredCreditCard.json"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Payments/InitResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Payments/InitResponseTemplate.yaml"
+                Pix:
+                  $ref: "../examples/Payments/InitResponsePaymentPix.json"
+                Boleto:
+                  $ref: "../examples/Payments/InitResponsePaymentBoleto.json"
+                Crypto:
+                  $ref: "../examples/Payments/InitResponsePaymentCrypto.json"
+                Split:
+                  $ref: "../examples/Payments/InitResponsePaymentSplit.json"
+                DummyCapturedCreditCard:
+                  $ref: "../examples/Payments/InitResponseDummyCapturedCreditCard.json"
+                DummyAuthorizedCreditCard:
+                  $ref: "../examples/Payments/InitResponseDummyAuthorizedCreditCard.json"
+                DummyNotAuthorizedCreditCard:
+                  $ref: "../examples/Payments/InitResponseDummyNotAuthorizedCreditCard.json"
+                DummyErrorCreditCard:
+                  $ref: "../examples/Payments/InitResponseDummyErrorCreditCard.json"
+                DummyInvalidCreditCard:
+                  $ref: "../examples/Payments/InitResponseDummyInvalidCreditCard.json"
+                DummyPendingCreditCard:
+                  $ref: "../examples/Payments/InitResponseDummyPendingCreditCard.json"
+                DummyExpiredCreditCard:
+                  $ref: "../examples/Payments/InitResponseDummyExpiredCreditCard.json"
+
+  /api/Payment/Cancel:
+    post:
+      summary: Cancel
+      description: |
+        Operation to refund payment.
+      operationId: Cancel
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Payments/CancelRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Payments/CancelRequestTemplate.yaml"
+              PaymentKey:
+                $ref: "../examples/Payments/CancelRequestPaymentKey.yaml"
+              PartnerUniqueId:
+                $ref: "../examples/Payments/CancelRequestPartnerUniqueId.yaml"
+              Partial:
+                $ref: "../examples/Payments/CancelRequestPartial.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Payments/CancelResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Payments/CancelResponseTemplate.yaml"
+                PaymentKey:
+                  $ref: "../examples/Payments/CancelResponsePaymentKey.json"
+                PartnerUniqueId:
+                  $ref: "../examples/Payments/CancelResponsePartnerUniqueId.json"
+                Partial:
+                  $ref: "../examples/Payments/CancelRequestPartial.yaml"
+
+  /api/Payment/CancelItem:
+    post:
+      summary: CancelItem
+      description: |
+        Operation to refund payment by items.
+      operationId: CancelItem
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Payments/CancelItemRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Payments/CancelItemRequestTemplate.yaml"
+              PaymentKey:
+                $ref: "../examples/Payments/CancelItemRequestPaymentKey.json"
+              PartnerUniqueId:
+                $ref: "../examples/Payments/CancelItemRequestPartnerUniqueId.json"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Payments/CancelItemResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Payments/CancelItemResponseTemplate.yaml"
+                PaymentKey:
+                  $ref: "../examples/Payments/CancelItemResponsePaymentKey.json"
+                PartnerUniqueId:
+                  $ref: "../examples/Payments/CancelItemResponsePartnerUniqueId.json"
+
+  /api/Payment/Capture:
+    post:
+      summary: Capture
+      description: |
+        In case your account is configured to delay capture, use this method to capture a
+        previously authorized transaction.
+      operationId: Capture
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Payments/CaptureRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Payments/CaptureRequestTemplate.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Payments/CancelResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Payments/CancelResponseTemplate.yaml"
+
+  /api/Payment/Status:
+    post:
+      summary: Status
+      description: |
+        Retrieve the status of a transaction.
+
+        If all callbacks are implemented
+        properly, and uptime is ensured, then the payment status between client
+        applications and the payment gateway should be synchronized. However,
+        should all callbacks (such as to notify the client application when a
+        transation has been cancelled using the web console) not be implemented,
+        it is possible for the statuses to be different. In that case, this API
+        call will retrieve the current status.
+      operationId: Status
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Payments/StatusRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Payments/StatusRequestTemplate.yaml"
+              Cancelled:
+                $ref: "../examples/Payments/StatusRequestCancelled.yaml"
+              PartialRefunded:
+                $ref: "../examples/Payments/StatusRequestPartialRefunded.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Payments/StatusResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Payments/StatusResponseTemplate.yaml"
+                SCancelledample:
+                  $ref: "../examples/Payments/StatusResponseCancelled.json"
+                PartialRefunded:
+                  $ref: "../examples/Payments/StatusResponsePartialRefunded.json"
+
+  # /api/Payment/Options:
+  #   post:
+  #     summary: Options
+  #     description: |
+  #       Lists available payment options configured for your account.
+  #     operationId: Options
+  #     parameters:
+  #       - in: header
+  #         name: x-tuna-account
+  #         required: true
+  #         schema:
+  #           $ref: "#/components/schemas/Account"
+  #       - in: header
+  #         name: x-tuna-apptoken
+  #         required: true
+  #         schema:
+  #           $ref: "#/components/schemas/AppToken"
+  #     requestBody:
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: "../spec/Payments/OptionsRequestSchema.yaml"
+  #           examples:
+  #             Template:
+  #               $ref: "../spec/Payments/OptionsRequestTemplate.yaml"
+  #     responses:
+  #       "200":
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "../spec/Payments/OptionsResponseSchema.yaml"
+  #             examples:
+  #               Template:
+  #                 $ref: "../spec/Payments/OptionsResponseTemplate.yaml"

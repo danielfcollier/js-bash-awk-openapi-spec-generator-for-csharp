@@ -1,0 +1,24 @@
+{
+  "summary": "Dummy Expired (Credit Card)",
+  "value": {
+    "status": "4",
+    "methods": [
+        {
+            "message": {
+                "source": 3,
+                "code": "GwInvalidCardData",
+                "message": "Gateway: Card data is invalid."
+            },
+            "methodType": "1",
+            "status": "6",
+            "methodId": 0,
+            "operationId": "O000113489A900000D0F00",
+            "methodKey": "13489A900000BC600"
+        }
+    ],
+    "paymentKey": "13489A900000BC6",
+    "partnerUniqueId": "#000.007",
+    "code": 1,
+    "operationId": "O000113489A900000D0F"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "summary": "Request Example",
+  "value": {
+    "customer": {
+        "id": "7",
+        "email": "maju.cheapetta@synapcom.com.br"
+    }
+  }
+}

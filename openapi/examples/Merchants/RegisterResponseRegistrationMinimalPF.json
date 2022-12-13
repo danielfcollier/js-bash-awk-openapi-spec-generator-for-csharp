@@ -1,0 +1,11 @@
+{
+  "summary": "Registration PF (Minimal)",
+  "value": {
+    "merchantId": 85,
+    "code": 1,
+    "message": {
+      "source": 0,
+      "message": "New merchant has been created"
+    }
+  }
+}

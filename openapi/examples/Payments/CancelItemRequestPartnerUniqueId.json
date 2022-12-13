@@ -1,0 +1,13 @@
+{
+  "summary": "CancelItem with PartnerUniqueId and PaymentDate",
+  "value": {
+    "partnerUniqueId": "#046",
+    "paymentDate": "2022-03-30",
+    "itemsDetail": [
+        {
+            "itemQuantity": 1,
+            "detailUniqueId": "A01"
+        }
+    ]
+  }
+}

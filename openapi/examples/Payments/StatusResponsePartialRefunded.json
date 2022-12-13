@@ -1,0 +1,16 @@
+{
+  "summary": "Partial Refunded",
+  "value": {
+    "status": "9",
+    "statusDescription": "PartialRefunded",
+    "methods": [
+        {
+            "statusDescription": "PartialRefunded",
+            "methodType": "1",
+            "status": "9",
+            "methodId": 0
+        }
+    ],
+    "code": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "summary": "Card Not Removed",
+  "value": {
+    "code": -1,
+    "message": "Card can not be removed",
+    "status": null
+  }
+}

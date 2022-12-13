@@ -1,0 +1,16 @@
+{
+  "summary": "Cancelled",
+  "value": {
+    "status": "5",
+    "statusDescription": "Cancelled",
+    "methods": [
+        {
+            "statusDescription": "Cancelled",
+            "methodType": "1",
+            "status": "5",
+            "methodId": 0
+        }
+    ],
+    "code": 1
+  }
+}

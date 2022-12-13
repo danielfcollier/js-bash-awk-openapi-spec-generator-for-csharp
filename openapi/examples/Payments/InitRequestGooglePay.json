@@ -1,0 +1,57 @@
+{
+  "summary": "Credit Card Payment with Google Pay",
+  "value": {
+    "TokenSession": "0cLqHdd/hJQT9fmnGBTFjunnhjek6oqdv+naWnGz6U2mTAcsbb/U5yFgLZthw5CDgjRj6anCEyckVuanzgVQtGacx+E=",
+    "PartnerUniqueID": "48",
+    "Customer": {
+      "Email": "test2@tuna.uy",
+      "Name": "Test User",
+      "ID": "tuna_123s4",
+      "Document": "919.412.410-85",
+      "DocumentType": "CPF",
+      "Gender": "M",
+      "DaysSinceRegistration": 5,
+      "DaysSinceLastLogin": 2,
+      "DaysSinceLastPasswordChange": null,
+      "DaysSinceLastPurchase": 2,
+      "DaysSinceFirstPurchase": 2
+    },
+    "PaymentItems": {
+      "Items": [
+        {
+          "DetailUniqueID": "12272566005",
+          "Amount": 107.87,
+          "ProductID": 461,
+          "ProductDescription": "Camisa Social Slim",
+          "CategoryID": 0,
+          "ItemQuantity": 1
+        }
+      ]
+    },
+    "PaymentData": {
+      "PaymentMethods": [
+        {
+          "PaymentMethodType": "1",
+          "Amount": 107.87,
+          "Installments": 1,
+          "SoftDescriptor": "ACME",
+          "CardInfo": {
+            "ExternalProvider": "GooglePay",
+            "ExternalProviderInfo": "{\"Signature\":\"MEYCIQDkZmYQ7/oREtDYSIZCBabF+jXqQTey5bapQlSoUyGDkAIhAM5cCR6z00hbsNhTb3k5Qy+uK8RUCoTavIHSOivPe/wj\"}",
+            "Data": {
+              "WalletKey": "{\"encryptedMessage\":\"z3bmezrKEHU4OUm1rGdACku4SbvDUCWpy0ZmP5J1UwLcgtCv0vdqCuyF3fI+G/aO7+O2KT1wZTPpL1unIbGjVJeVCZcxxQW38REmiz9IIEZOjW/5kmMiefd4QwwHeoI2ZmOAf0QAne8cYXW3flRej4UCHAzdJZJ/abHgYXwIQtCfAp+2fkFJMXtj3N12sjDop0Ru5sq0/Y1kGivI+ATLbHHEGtcYAt0ZFTyM2FHeOjf/ymezzGwI0VbEtwhhGXKzI2cnfOC8qjGDBIGX3oBno61swQxWnwWeihlGQrwl8ZmMWSrHUrnmY8ewIB+3o6xjISqv+kDd6ktXyR2VntrgRUMvcDpnbzRgU+QriSx96U+6/Yw5RQvixicXHOPZyUA8Y02hKpOCz/CA91r5Tfen8GV9ltFH+44mivwbAglsfg7tVMG9xY6Yq14we5NmZJDqwRXiNQMYaNjmCrl9nvVKFxX3oZE36+G4cIQI/cKIIw\\u003d\\u003d\",\"ephemeralPublicKey\":\"BEdhNDShqdQ4chuv3fJSpZbW3SCL0mT0bOcfDvyYYFfzWAfxd74bwf2MU0Us7ODTKD89OYYzH2q2DG4O4k6rNO4\\u003d\",\"tag\":\"kdoBfqSRS7JSWG17ZxaFHn/JSU+2UwNQ1NoT5kg6/ic\\u003d\"}"
+            }
+          }
+        }
+      ],
+      "Countrycode": "BR",
+      "Amount": 0
+    },
+    "FrontData": {
+      "SessionID": "6793ef3ab449499abb5fe3999edabde7",
+      "Origin": "WEBSITE",
+      "IpAddress": "192.168.0.5",
+      "CookiesAccepted": true
+    }
+  }
+}

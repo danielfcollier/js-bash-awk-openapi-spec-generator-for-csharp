@@ -1,0 +1,24 @@
+{
+  "summary": "Dummy Error (Credit Card)",
+  "value": {
+    "status": "4",
+    "methods": [
+        {
+            "message": {
+                "source": 3,
+                "code": "GwErrorTransaction",
+                "message": "Gateway request error while processing transaction :O"
+            },
+            "methodType": "1",
+            "status": "A",
+            "methodId": 0,
+            "operationId": "O000113489A900000D0C00",
+            "methodKey": "13489A900000BC300"
+        }
+    ],
+    "paymentKey": "13489A900000BC3",
+    "partnerUniqueId": "#000.004",
+    "code": 1,
+    "operationId": "O000113489A900000D0C"
+  }
+}

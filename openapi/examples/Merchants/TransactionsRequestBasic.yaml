@@ -1,0 +1,13 @@
+summary: "Basic Request"
+value:
+  dateFrom: 2022-02-01
+
+  dateTo: 2022-02-28
+
+  dateSortAsc: true
+
+  pageSize: 20
+
+  pageNumber: 1
+
+  merchantID: "#0002"

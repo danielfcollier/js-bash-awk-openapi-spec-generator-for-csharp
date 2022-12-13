@@ -1,0 +1,5 @@
+summary: "Get Merchant List"
+value:
+  rowsPerPage: 1
+
+  pageNumber: 10

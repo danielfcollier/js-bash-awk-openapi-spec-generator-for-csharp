@@ -1,0 +1,63 @@
+{
+  "summary": "Get Merchant List",
+  "value": {
+    "total": 44,
+    "merchantList": [
+      {
+        "id": 84,
+        "externalId": "#008",
+        "document": "30309644003",
+        "documentType": "cpf",
+        "name": "Natalia Cheapetta",
+        "fantasyName": "",
+        "countryId": 1,
+        "statusId": "1",
+        "paymentBlocked": false,
+        "registrationDate": "2022-03-16T00:00:00",
+        "condition": "1",
+        "multiStore": false,
+        "paymentByMain": true,
+        "birthday": "1985-01-01T00:00:00",
+        "occupation": "Developer",
+        "motherName": "Salete Cheapetta",
+        "pixKeyType": "2",
+        "pixKey": "552.751.320-77",
+        "configuration": {
+          "frontEnd": {
+            "color": "#000000"
+          },
+          "registration": {}
+        },
+        "services": [],
+        "serviceRegistrations": [],
+        "contact": {
+          "email": "natalia.cheapetta@synapcom.com.br",
+          "celPhone": "11980719391"
+        },
+        "legalRepresentative": {},
+        "bankAccounts": [
+          {
+            "externalId": "1",
+            "document": "55275132077",
+            "documentType": "cpf",
+            "accountType": "C",
+            "bankCode": "001",
+            "agency": "2946",
+            "number": "0733-7",
+            "services": []
+          }
+        ],
+        "address": {
+          "street": "Rua João Longo",
+          "number": "1004",
+          "neighborhood": "Jandira",
+          "city": "São Paulo",
+          "state": "SP",
+          "postalCode": "06608420"
+        }
+      }
+    ],
+    "code": 1
+  }
+
+}

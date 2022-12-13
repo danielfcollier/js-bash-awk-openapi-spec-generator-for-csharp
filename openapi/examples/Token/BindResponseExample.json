@@ -1,0 +1,8 @@
+{
+  "summary": "Response Example",
+  "value": {
+    "validFor": null,
+    "code": 1,
+    "message": "Bind succeded"
+  }
+}

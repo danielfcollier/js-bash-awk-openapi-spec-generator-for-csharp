@@ -1,0 +1,62 @@
+{
+  "summary": "Get PJ",
+  "value": {
+    "merchant": {
+      "id": 86,
+      "externalId": "##002",
+      "document": "58072555000129",
+      "documentType": "cnpj",
+      "name": "Synacomp Corp.",
+      "fantasyName": "Synacomp",
+      "countryId": 1,
+      "statusId": "1",
+      "paymentBlocked": false,
+      "registrationDate": "2022-03-16T00:00:00",
+      "condition": "1",
+      "websiteUrl": "www.synapcom.com.br",
+      "acceptedContract": true,
+      "multiStore": false,
+      "paymentByMain": true,
+      "pixKeyType": "2",
+      "pixKey": "58.072.555/0001-29",
+      "configuration": {
+        "frontEnd": {
+          "color": "#000000"
+        },
+        "registration": {}
+      },
+      "services": [],
+      "serviceRegistrations": [],
+      "contact": {
+        "name": "Natalia Cheapetta",
+        "email": "natalia.cheapetta@synapcom.com.br",
+        "cellPhone": "11980719391"
+      },
+      "legalRepresentative": {},
+      "bankAccounts": [
+        {
+          "externalId": "1",
+          "document": "58072555000129",
+          "documentType": "cnpj",
+          "accountType": "C",
+          "bankCode": "001",
+          "agency": "2946",
+          "number": "0733-7",
+          "bankName": "Banco Do Brasil S.A (BB)",
+          "services": []
+        }
+      ],
+      "address": {
+        "street": "Rua João Longo",
+        "number": "1004",
+        "complement": "",
+        "neighborhood": "Jandira",
+        "city": "São Paulo",
+        "state": "SP",
+        "postalCode": "06608420"
+      }
+    },
+    "code": 1
+  }
+
+}

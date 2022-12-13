@@ -1,0 +1,12 @@
+{
+  "summary": "CancelItem with PaymentKey",
+  "value": {
+    "paymentKey": "13489AA00000BD4",
+    "itemsDetail": [
+        {
+            "itemQuantity": 1,
+            "detailUniqueId": "A01"
+        }
+    ]
+  }
+}

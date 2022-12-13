@@ -1,0 +1,8 @@
+summary: Partial Amount Cancelation
+value:
+  cardsDetail:
+    - amount: 5
+      methodId: 0
+
+  paymentKey: 13489A600000BA9
+

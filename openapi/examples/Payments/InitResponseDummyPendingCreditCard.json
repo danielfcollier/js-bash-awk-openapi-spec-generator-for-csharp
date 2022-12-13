@@ -1,0 +1,24 @@
+{
+  "summary": "Dummy Pending (Credit Card)",
+  "value": {
+    "status": "P",
+    "methods": [
+        {
+            "message": {
+                "source": 3,
+                "code": "GwResultOk",
+                "message": "Successfull authorization"
+            },
+            "methodType": "1",
+            "status": "C",
+            "methodId": 0,
+            "operationId": "O000113489A900000D0E00",
+            "methodKey": "13489A900000BC500"
+        }
+    ],
+    "paymentKey": "13489A900000BC5",
+    "partnerUniqueId": "#000.006",
+    "code": 1,
+    "operationId": "O000113489A900000D0E"
+  }
+}

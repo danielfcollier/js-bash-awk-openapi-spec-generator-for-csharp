@@ -1,0 +1,341 @@
+openapi: 3.0.1
+
+servers:
+  - url: https://token.tuna-demo.uy
+    description: sandbox
+  - url: https://token.tunagateway.com
+    description: production
+
+info:
+  title: Tuna Token API
+  description: |
+    # Introduction
+
+    Tuna Token API is your secret vault at Tuna, where you can store sensitive credit card
+    data and retrieve secure tokens for later use.
+
+    We always recommend using our plugins, but be our guest and use the API described below.
+    Tuna is a PCI Level 1 certified company; your data is safe with us.
+
+    Tuna APIs are organized around REST. Our APIs have predictable resource-oriented URLs,
+    accept form-encoded request bodies, return JSON-encoded responses, and use standard HTTP
+    response codes, authentication, and verbs.
+
+    You can use the Tuna APIs in sandbox mode, which does not affect your live data or
+    interact with the banking networks. The API server and keys you use for the request
+    determine whether the request is in production mode or sandbox mode.
+
+    # API REST Guides
+
+    - **API REST**: are you looking for a guide for our APIs? Check out the introduction to the [API REST](/api).
+
+    - **Payment Integration**: do you need to be able to perform secure credit card payments and/or also use other payment methods such as Debit Card, Boleto, PIX, and Bitcoin? Check out how to perform a [Payment Integration](/api/payment-integration) with our [Payment API](/api/payment) and [Token API](/api/token).
+
+    - **Split Integration**: are you looking to set up a marketplace so your merchants will use split payment solutions in your marketplace? Check out how to perform a [Split Integration](/api/split-integration) with our [Merchant API](/api/merchant).
+
+    - **Tuna Codes**: do you need to learn about your codes and status? Please, check out the [Tuna Codes](/api/tuna-codes).
+
+    - **Webhooks Notifications**: learn more about our notifications in the guide [Webhooks Notifications](/api/webhooks-notifications).
+
+    - **Sandbox Environment**: check out for information about test data and a full description of the [Sandbox Environment](/api/sandbox-environment).
+
+    - **Idempotent Requests**: do you require idempotent requests? Take a look how to make [Idempotent Requests](/api/idempotent-requests).
+
+    # Examples
+
+    There are many examples on the right. Please check all that are meaningful to your company.
+
+    # Authentication
+
+    Your first secrets are provided when you sign up for an account:  account name and app token.
+
+    You can generate additional API keys and delete API keys (as you may need to rotate your
+    keys in the future). You authenticate to Tuna APIs by providing your account name and app
+    token key in the request HTTP headers.
+
+    Tuna's sandbox environment uses public keys available to anyone:
+
+    ```yaml
+    "x-tuna-account": "demo"
+    "x-tuna-apptoken": "a3823a59-66bb-49e2-95eb-b47c447ec7a7"
+    ```
+
+  version: v1
+  license:
+    name: MIT License
+    url: https://dev.tuna.uy/api/license
+  # termsOfService: https://dev.tuna.uy/security/privacy-policy
+  # contact:
+  #   name:
+  #   email:
+  #   url:
+  # externalDocs:
+  #   description:
+  #   url:
+
+components:
+  schemas:
+    Account:
+      description: The name of your account.
+      type: string
+
+    AppToken:
+      description: The app token associated with your account.
+      type: string
+      format: uuid
+
+  securitySchemes:
+    Account:
+      type: apiKey
+      in: header
+      name: x-tuna-account
+    AppToken:
+      type: apiKey
+      in: header
+      name: x-tuna-apptoken
+
+security:
+  - Account: []
+    AppToken: []
+
+paths:
+  /api/Token/NewSession:
+    post:
+      summary: New Session
+      description: |
+        Creates a new session. The **sessionId** returned must be used on all following api methods.
+      operationId: NewSession
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Token/CreateSessionRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Token/CreateSessionRequestTemplate.yaml"
+              Example:
+                $ref: "../examples/Token/NewSessionRequestExample.json"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Token/CreateSessionResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Token/CreateSessionResponseTemplate.yaml"
+                Example:
+                  $ref: "../examples/Token/NewSessionResponseExample.json"
+
+  /api/Token/Generate:
+    post:
+      summary: Generate
+      description: Generates a new token for a given credit card number.
+      operationId: Generate
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Token/GenerateRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Token/GenerateRequestTemplate.yaml"
+              Example:
+                $ref: "../examples/Token/GenerateRequestExample.json"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Token/GenerateResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Token/GenerateResponseTemplate.yaml"
+                Example:
+                  $ref: "../examples/Token/GenerateResponseExample.json"
+                SessionExpired:
+                  $ref: "../examples/Token/GenerateResponseSessionExpired.json"
+
+  /api/Token/List:
+    post:
+      summary: List
+      description: Lists the tokens of saved cards from the user associated with a **sessionId**.
+      operationId: List
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Token/ListRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Token/ListRequestTemplate.yaml"
+              Example:
+                $ref: "../examples/Token/ListRequestExample.json"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Token/ListResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Token/ListResponseTemplate.yaml"
+                Example:
+                  $ref: "../examples/Token/ListResponseExample.json"
+                SessionExpired:
+                  $ref: "../examples/Token/ListResponseSessionExpired.json"
+
+  /api/Token/Bind:
+    post:
+      summary: Bind
+      description: Binds a CVV with a token.
+      operationId: Bind
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Token/BindRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Token/BindRequestTemplate.yaml"
+              Example:
+                $ref: "../examples/Token/BindRequestExample.json"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Token/BindResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Token/BindResponseTemplate.yaml"
+                Example:
+                  $ref: "../examples/Token/BindResponseExample.json"
+
+  /api/Token/ValidateSession:
+    post:
+      summary: Validate
+      description: This method can be used to verify if a session is still valid.
+      operationId: ValidateSession
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Token/ValidateRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Token/ValidateRequestTemplate.yaml"
+              Example:
+                $ref: "../examples/Token/ValidateSessionRequestExample.json"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Token/ValidateResponseSchema.yaml"
+              examples:
+                Template:
+                    $ref: "../spec/Token/ValidateResponseTemplate.yaml"
+                Example:
+                  $ref: "../examples/Token/ValidateSessionResponseExample.json"
+
+  /api/Token/Delete:
+    delete:
+      summary: Delete
+      description: Deletes a token.
+      operationId: Delete
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Token/DeleteRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Token/DeleteRequestTemplate.yaml"
+              Example:
+                $ref: "../examples/Token/DeleteRequestExample.json"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Token/DeleteResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Token/DeleteResponseTemplate.yaml"
+                Example:
+                  $ref: "../examples/Token/DeleteResponseExample.json"
+                CardNotRemoved:
+                  $ref: "../examples/Token/DeleteResponseCardNotRemoved.json"

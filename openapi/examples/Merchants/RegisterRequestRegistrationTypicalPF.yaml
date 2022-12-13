@@ -1,0 +1,50 @@
+summary: "Registration PF (Typical)"
+value:
+  externalId: "##003"
+
+  document: "225.465.960-04"
+
+  documentType: "CPF"
+
+  condition: "1"
+
+  acceptedContract: true
+
+  websiteUrl: "www.synapcom.com.br"
+
+  registrationDate: 2022-03-16
+
+  name: "Natalia Cheapetta"
+
+  birthday: 1985-01-01
+
+  occupation: "Desenvolvedor de Software"
+
+  motherName: "Salete Cheapetta"
+
+  pixKeyType: "1"
+
+  pixKey: "225.465.960-04"
+
+  contact:
+    email: "natalia.cheapetta@synapcom.com.br"
+    cellPhone: "(11) 98071-9391"
+
+  bankAccounts:
+    - externalId: "1"
+      document: "225.465.960-04"
+      documentType: "CPF"
+      accountType: "C"
+      bankCode: "001"
+      bankName: "Banco Do Brasil S.A (BB)"
+      agency: "2946"
+      number: "0733-7"
+
+  address:
+    street: "Rua João Longo"
+    number: "1004"
+    neighborhood: "Jandira"
+    complement: ""
+    city: "São Paulo"
+    state: "SP"
+    postalCode: "06608-420"

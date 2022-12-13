@@ -1,0 +1,11 @@
+{
+  "summary": "Response Example",
+  "value": {
+    "partnerId": 1,
+    "paymentAccount": "",
+    "partnerUniqueId": "",
+    "accountIsolation": false,
+    "code": 1,
+    "message": null
+  }
+}

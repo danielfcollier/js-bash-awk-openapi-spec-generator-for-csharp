@@ -1,0 +1,8 @@
+{
+  "summary": "Response Example",
+  "value": 	{
+    "status": "Success",
+    "code": 1,
+    "message": null
+  }
+}

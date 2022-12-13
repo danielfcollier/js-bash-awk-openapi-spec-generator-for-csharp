@@ -1,0 +1,9 @@
+{
+  "summary": "Session Expired",
+  "value": {
+    "token": null,
+    "brand": null,
+    "code": -1,
+    "message": "Session has expired"
+  }
+}

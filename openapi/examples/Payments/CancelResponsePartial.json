@@ -1,0 +1,26 @@
+{
+  "summary": "Partial Amount Cancelation",
+  "value": {
+    "status": "9",
+    "methods": [
+      {
+        "message": {
+          "source": 1,
+          "code": "GwResultOk",
+          "message": "Successfull authorization"
+        },
+        "methodType": "1",
+        "status": "9",
+        "methodId": 0,
+        "operationId": "O000113489A600000CF200"
+      }
+    ],
+    "code": 1,
+    "message": {
+      "source": 1,
+      "code": "Done",
+      "message": "Operation terminated"
+    },
+    "operationId": "O000113489A600000CF2"
+  }
+}

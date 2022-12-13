@@ -1,0 +1,79 @@
+{
+  "summary": "External Payment (PayPal)",
+  "value": {
+    "PartnerUniqueID": "200",
+    "Customer": {
+      "Email": "test2@tuna.uy",
+      "Name": "Test User",
+      "ID": "tuna_123s4",
+      "Document": "919.412.410-85",
+      "DocumentType": "CPF",
+      "Gender": "M",
+      "DaysSinceRegistration": 5,
+      "DaysSinceLastLogin": 2,
+      "DaysSinceLastPasswordChange": null,
+      "DaysSinceLastPurchase": 2,
+      "DaysSinceFirstPurchase": 2
+    },
+    "Vendor": {
+      "MCC": "5947",
+      "Code": "EC-123",
+      "Industry": "Gift shop",
+      "Name": "ACME",
+      "Document": "38.788.507/0001-24",
+      "DocumentType": "CNPJ",
+      "DaysSinceRegistration": 300,
+      "DaysSinceLastSell": 20,
+      "DaysSinceFirstSell": 300
+    },
+    "PaymentItems": {
+      "Items": [
+        {
+          "Amount": 200,
+          "ProductDescription": "item1",
+          "ItemQuantity": 2,
+          "CategoryName": "Category name",
+          "Ean": "A-121321",
+          "AntiFraud": {
+            "DeliveryAddressee": "Antonia"
+          }
+        }
+      ]
+    },
+    "PaymentData": {
+      "PaymentMethods": [
+        {
+          "PaymentMethodType": "9",
+          "Amount": 400,
+          "Installments": 1,
+          "SoftDescriptor": "ACME",
+          "CardInfo": {
+            "BillingInfo": {
+              "Number": "B9AT91093X4886194X"
+            },
+            "Data": {
+              "Description": "Compra na Tuna",
+              "quoteID": "A21AAEpXJ1UsHHFAYmaJDwRXQbmddGwd27DKE2KWq0m-GsEXLY5FFzdldDQWujFJZ-VHWVALZMsPdIkYOkMuye0EIiVP4VYYA"
+            }
+          }
+        }
+      ],
+      "Countrycode": "BR",
+      "DeliveryAddress": {
+        "Street": "Ses Av. Das Nações",
+        "Number": "Q811",
+        "Complement": "Bloco H",
+        "Neighborhood": "Brasilia",
+        "City": "Brasilia",
+        "State": "DF",
+        "Country": "BR",
+        "PostalCode": "70429-900",
+        "Phone": "(61) 324 421 21"
+      }
+    },
+    "FrontData": {
+      "SessionID": "Bearer",
+      "IpAddress": "192.168.0.5"
+    }
+  }
+}

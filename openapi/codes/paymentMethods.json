@@ -1,0 +1,54 @@
+{
+  "1": {
+    "paymentMethod": "CreditCard",
+    "description": "Credit Card"
+  },
+  "2": {
+    "paymentMethod": "DebitCard",
+    "description": "Debit Card"
+  },
+  "3": {
+    "paymentMethod": "Boleto",
+    "description": "Brazilian Bank Slip"
+  },
+  "4": {
+    "paymentMethod": "BankTransfer",
+    "description": "Bank Wire Transfer"
+  },
+  "5": {
+    "paymentMethod": "ThreeDSCredit",
+    "description": "3DS 1.0 Credit Card"
+  },
+  "6": {
+    "paymentMethod": "ThreeDSDebit",
+    "description": "3DS 1.0 Debit Card"
+  },
+  "7": {
+    "paymentMethod": "ThreeDS20Credit",
+    "description": "3DS 2.0 Credit Card"
+  },
+  "8": {
+    "paymentMethod": "ThreeDS20Debit",
+    "description": "3DS 2.0 Debit Card"
+  },
+  "9": {
+    "paymentMethod": "External",
+    "description": "Generic External Payment"
+  },
+  "A": {
+    "paymentMethod": "GiftCard",
+    "description": "Gift Card Provider"
+  },
+  "B": {
+    "paymentMethod": "Balance",
+    "description": "Proprietary Credit System Balance"
+  },
+  "C": {
+    "paymentMethod": "CreditCardPrivateBrand",
+    "description": "Private Label Credit Card"
+  },
+  "D": {
+    "paymentMethod": "PIX",
+    "description": "Brazilian Central Bank's instant payment"
+  }
+}

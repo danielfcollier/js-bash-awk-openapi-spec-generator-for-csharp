@@ -1,0 +1,24 @@
+{
+  "summary": "Dummy Not Authorized (Credit Card)",
+  "value": {
+    "status": "4",
+    "methods": [
+        {
+            "message": {
+                "source": 3,
+                "code": "GwNotAuthorized",
+                "message": "The transaction was not approved and your card was not charged. Please contact your issuing bank or try using a different card."
+            },
+            "methodType": "1",
+            "status": "4",
+            "methodId": 0,
+            "operationId": "O000113489A900000D0B00",
+            "methodKey": "13489A900000BC200"
+        }
+    ],
+    "paymentKey": "13489A900000BC2",
+    "partnerUniqueId": "#000.003",
+    "code": 1,
+    "operationId": "O000113489A900000D0B"
+  }
+}

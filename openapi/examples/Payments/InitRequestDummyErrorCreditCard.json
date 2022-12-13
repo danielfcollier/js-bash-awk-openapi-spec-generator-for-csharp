@@ -1,0 +1,58 @@
+{
+  "summary": "Dummy Error (Credit Card)",
+  "value": {
+    "tokenSession": "kC8DA7Baewh9XYENA4Rb8ScaqwA0//sp+sEFC8raqQLVbYkNJxVBJhdVQdBull6PfIyL4HLsBmosprXR878TOLHDZg1wCZbnij4sq4T4SDQ=",
+    "partnerUniqueId": "#000.004",
+    "customer": {
+        "id": "7",
+        "email": "maju.cheapetta@synapcom.com.br",
+        "document": "744.479.870-23",
+        "documentType": "CPF",
+        "name": "Maju Cheapetta"
+    },
+    "paymentItems": {
+        "items": [
+            {
+                "amount": 20,
+                "detailUniqueId": "A01",
+                "productDescription": "Test product",
+                "itemQuantity": 1
+            }
+        ]
+    },
+    "paymentData": {
+        "paymentMethods": [
+            {
+                "paymentMethodType": "1",
+                "amount": 20,
+                "installments": 1,
+                "cardInfo": {
+                    "token": "ct_NjJmM2QxOTUtYTM4OS00YmYyLTg4MDAtOTE3YzY1NzM0NmE30",
+                    "tokenProvider": "Tuna",
+                    "cardHolderName": "Error",
+                    "expirationMonth": 12,
+                    "expirationYear": 2023,
+                    "brandName": "Visa",
+                    "tokenSingleUse": 0,
+                    "saveCard": false,
+                    "billingInfo": {
+                        "document": "744.479.870-23",
+                        "documentType": "CPF"
+                    }
+                }
+            }
+        ],
+        "deliveryAddress": {
+            "street": "Rua João Longo",
+            "number": "1004",
+            "neighborhood": "Jandira",
+            "city": "São Paulo",
+            "state": "SP",
+            "postalCode": "06608-420",
+            "phone": "(11) 6536-8864",
+            "country": "BR"
+        },
+        "countryCode": "BR"
+    }
+  }
+}

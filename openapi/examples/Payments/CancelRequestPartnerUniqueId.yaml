@@ -1,0 +1,5 @@
+summary: Cancel with PartnerUniqueId and Payment Date
+value:
+  partnerUniqueID: '#0002'
+
+  paymentDate: 2022-03-26

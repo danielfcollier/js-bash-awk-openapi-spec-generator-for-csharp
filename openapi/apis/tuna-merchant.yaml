@@ -1,0 +1,344 @@
+openapi: 3.0.1
+
+servers:
+  - url: https://sandbox.tuna-demo.uy
+    description: sandbox
+  - url: https://engine.tunagateway.com
+    description: production
+
+info:
+  title: Tuna Merchant API
+  description: |
+    # Introduction
+
+    Tuna Merchant API can perform operations for merchants using payment split.
+
+    We always recommend using our plugins, but be our guest and use the API described below.
+    Tuna is a PCI Level 1 certified company; your data is safe with us.
+
+    Tuna APIs are organized around REST. Our APIs have predictable resource-oriented URLs,
+    accept form-encoded request bodies, return JSON-encoded responses, and use standard HTTP
+    response codes, authentication, and verbs.
+
+    You can use the Tuna APIs in sandbox mode, which does not affect your live data or
+    interact with the banking networks. The API server and keys you use for the request
+    determine whether the request is in production mode or sandbox mode.
+
+    # API REST Guides
+
+    - **API REST**: are you looking for a guide for our APIs? Check out the introduction to the [API REST](/api).
+
+    - **Payment Integration**: do you need to be able to perform secure credit card payments and/or also use other payment methods such as Debit Card, Boleto, PIX, and Bitcoin? Check out how to perform a [Payment Integration](/api/payment-integration) with our [Payment API](/api/payment) and [Token API](/api/token).
+
+    - **Split Integration**: are you looking to set up a marketplace so your merchants will use split payment solutions in your marketplace? Check out how to perform a [Split Integration](/api/split-integration) with our [Merchant API](/api/merchant).
+
+    - **Tuna Codes**: do you need to learn about your codes and status? Please, check out the [Tuna Codes](/api/tuna-codes).
+
+    - **Webhooks Notifications**: learn more about our notifications in the guide [Webhooks Notifications](/api/webhooks-notifications).
+
+    - **Sandbox Environment**: check out for information about test data and a full description of the [Sandbox Environment](/api/sandbox-environment).
+
+    - **Idempotent Requests**: do you require idempotent requests? Take a look how to make [Idempotent Requests](/api/idempotent-requests).
+
+    # Examples
+
+    There are many examples on the right. Please check all that are meaningful to your company.
+
+    # Authentication
+
+    Your first secrets are provided when you sign up for an account:  account name and app token.
+
+    You can generate additional API keys and delete API keys (as you may need to rotate your
+    keys in the future). You authenticate to Tuna APIs by providing your account name and app
+    token key in the request HTTP headers.
+
+    Tuna's sandbox environment uses public keys available to anyone:
+
+    ```yaml
+    "x-tuna-account": "demo"
+    "x-tuna-apptoken": "a3823a59-66bb-49e2-95eb-b47c447ec7a7"
+    ```
+
+  version: v1
+  license:
+    name: MIT License
+    url: https://dev.tuna.uy/api/license
+  # termsOfService: https://dev.tuna.uy/security/privacy-policy
+  # contact:
+  #   name:
+  #   email:
+  #   url:
+  # externalDocs:
+  #   description:
+  #   url:
+
+components:
+  schemas:
+    Account:
+      description: The name of your account.
+      type: string
+
+    AppToken:
+      description: The app token associated with your account.
+      type: string
+      format: uuid
+
+  securitySchemes:
+    Account:
+      type: apiKey
+      in: header
+      name: x-tuna-account
+    AppToken:
+      type: apiKey
+      in: header
+      name: x-tuna-apptoken
+
+security:
+  - Account: []
+    AppToken: []
+
+paths:
+  /api/Merchant/Register:
+    post:
+      summary: Register Merchant
+      description: |
+        Merchant registration for payment split.
+      operationId: Register
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Merchants/RegisterRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Merchants/RegisterRequestTemplate.yaml"
+              RegisterRegistrationMinimalPF:
+                $ref: "../examples/Merchants/RegisterRequestRegistrationMinimalPF.yaml"
+              RegisterRegistrationMinimalPJ:
+                $ref: "../examples/Merchants/RegisterRequestRegistrationMinimalPJ.yaml"
+              RegisterRegistrationTypicalPF:
+                $ref: "../examples/Merchants/RegisterRequestRegistrationTypicalPF.yaml"
+              RegisterRegistrationTypicalPJ:
+                $ref: "../examples/Merchants/RegisterRequestRegistrationTypicalPJ.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Merchants/RegisterResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Merchants/RegisterResponseTemplate.yaml"
+                RegisterRegistrationMinimalPF:
+                  $ref: "../examples/Merchants/RegisterResponseRegistrationMinimalPF.json"
+                RegisterRegistrationMinimalPJ:
+                  $ref: "../examples/Merchants/RegisterResponseRegistrationMinimalPJ.json"
+        # "400":
+        #   description: Error
+        #   content:
+        #     application/json:
+        #       schema:
+        #         $ref: "./MerchantErrorResponseSchema.yaml"
+
+  /api/Merchant/GetMerchant:
+    post:
+      summary: Get Merchant
+      description: Get details about a specific merchant.
+      operationId: GetMerchant
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Merchants/GetMerchantRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Merchants/GetMerchantRequestTemplate.yaml"
+              GetPF:
+                $ref: "../examples/Merchants/GetMerchantRequestGetPF.yaml"
+              GetPJ:
+                $ref: "../examples/Merchants/GetMerchantRequestGetPJ.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Merchants/GetMerchantResponseSchema.yaml"
+              examples:
+                Template:
+                    $ref: "../spec/Merchants/GetMerchantResponseTemplate.yaml"
+                GetPJ:
+                  $ref: "../examples/Merchants/GetMerchantResponseGetPJ.json"
+                GetPF:
+                  $ref: "../examples/Merchants/GetMerchantResponseGetPF.json"
+
+  /api/Merchant/GetMerchantList:
+    post:
+      summary: Get Merchant List
+      description: Retrieve a list with all your merchants.
+      operationId: GetMerchantList
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Merchants/GetMerchantListRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Merchants/GetMerchantListRequestTemplate.yaml"
+              GetMerchantList:
+                $ref: "../examples/Merchants/GetMerchantListRequest.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Merchants/GetMerchantListResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Merchants/GetMerchantListResponseTemplate.yaml"
+                GetMerchantList:
+                  $ref: "../examples/Merchants/GetMerchantListResponse.json"
+
+  /api/Merchant/Transactions:
+    post:
+      summary: Transactions
+      description: Retrieve order transactions for a merchant.
+      operationId: Transactions
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Merchants/TransactionsRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Merchants/TransactionsRequestTemplate.yaml"
+              Basic:
+                $ref: "../examples/Merchants/TransactionsRequestBasic.yaml"
+              Filtered:
+                $ref: "../examples/Merchants/TransactionsRequestFiltered.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Merchants/TransactionsResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Merchants/TransactionsResponseTemplate.yaml"
+
+  /api/Merchant/Statement:
+    post:
+      summary: Statement
+      description: Retrieve a report of financial statements for a merchant.
+      operationId: Statement
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Merchants/StatementRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Merchants/StatementRequestTemplate.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Merchants/StatementResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Merchants/StatementResponseTemplate.yaml"
+
+  /api/Merchant/ConsolidatedStatement:
+    post:
+      summary: ConsolidatedStatement
+      description: Summarizes the statement data in a consolidated daily report.
+      operationId: ConsolidatedStatement
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../spec/Merchants/ConsolidatedStatementRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../spec/Merchants/ConsolidatedStatementRequestTemplate.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../spec/Merchants/ConsolidatedStatementResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../spec/Merchants/ConsolidatedStatementResponseTemplate.yaml"
