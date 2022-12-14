@@ -35,8 +35,6 @@ Merchant-Register:Occupation: 'Profession or activity field, just required if th
 Merchant-Register:PayoutStatus: Put a description here.
 Merchant-Register:PixKey: The merchant's PIX key value. It must be for the same **document ID** registered.
 Merchant-Register:PixKeyType: 'Possible values are: <ul><li>\"1\": for CPF</li> <li>\"2\": for CNPJ</li> <li>\"3\": for Email</li> <li>\"4\": for Cellphone</li> <li>\"5\": for Random Key</li> </ul>'
-Merchant-Register:PPEDescription: Put a description here.
-Merchant-Register:PPE: Put a description here.
 Merchant-Register:RegistrationDate: The registration date of the merchant at Tuna.
 Merchant-Register:StateFiscalDocument: 'State fiscal document (pt-br: \"Inscrição Estadual: recebe uma string de números ou a string \"ISENTO\" quando não possuir inscrição estadual.\").'
 Merchant-Register:StatusId: 'After a successful registration process, i.e., the status is \"1\" which means \"active\", it is possible to either inactive or suspend an account by sending an update message with its related key values. Possible values are: <ul><li>\"0\" for \"InAnalysis\"</li> <li>\"1\": for \"Active\"</li> <li>\"2\": for \"Inactive\"</li> <li>\"3\": for \"Suspended\"</li> </ul>'
@@ -50,7 +48,6 @@ Merchant-Statement:ServiceId: 'The split service identifier. For a complete refe
 Merchant-Statement:ServiceName: 'The split service name that you will receive your incoming money transfers. It can be accordingly to the table below: <ul><li>40: Tuna Split para PIX</li> <li>41: Tuna Split para Cartão</li>  <li>36: GetNetSplit (you may change this name in your console).</li></ul>'
 Merchant-Statement:Sign: The operation sign can be either \"+\" for incoming or \"-\" negative for revenues.
 Merchant-Statement:Statement: List of statements.
-Merchant-Statement:StatusPayout: Put a description here.
 Merchant-Statement:Type: The nature of the financial operation.
 Merchant-Transactions:CardBrandId: 'The brand identifier is related to the brand name of the credit card.  It can be accordingly to the table below: <ul><li>1: MasterCard</li> <li>2: VISA</li> <li>3: Amex</li> <li>4: DinersClub</li> <li>5: Elo</li> <li>6: Hipercard</li> <li>7: Alelo</li> <li>8: PrivateLabel</li> <li>9: GiftCard</li> <li>10: Voucher</li> <li>11: Cabal</li> <li>12: Banescard</li> <li>13: JCB</li> <li>14: Mais</li> <li>15: Ourocard</li> <li>16: Sorocred</li> <li>17: Verdecard</li> <li>18: Credz</li> <li>19: Goodcard</li> </ul>'
 Merchant-Transactions:CardBrandName: The brand name of the credit card. For a complete reference, please, look at the table within the description of the property **cardBrandId**.'
@@ -65,7 +62,6 @@ Merchant-Transactions:PaymentStatus: The overall status of a payment. Please ref
 Merchant-Transactions:TotalAmount: The total amount for valid transactions in the query.
 Merchant-Transactions:TotalCount: The total count of transactions in the query.
 Merchant-Transactions:TotalPages: The maximum number of pages in the results. This property is used for pagination control along with **PageNumber**.
-Merchant-Transactions:TransactionDate: Put a description here.
 Merchant-Transactions:Transactions: List of transactions.
 Payment:Amount: The total value paid by the payment method.
 Payment-Cancel:CardsDetail-Amount: The amount to be canceled for the related payment transaction.
@@ -73,8 +69,6 @@ Payment-Cancel:CardsDetail-Data: Any additional data used to refer to the card.
 Payment-Cancel:CardsDetail: List of card details that are going to be canceled in the payment transaction.
 Payment-CancelItem:ItemsDetail: List of items details that are going to be canceled in the payment transaction.
 Payment-Init:AntiFraud-AmountPointsLastExchange: Amount of fidelity points used last time.
-Payment-Init:AntiFraud-CuponCode: Put a description here.
-Payment-Init:AntiFraud-CustomerSince: Put a description here.
 Payment-Init:AntiFraud-Data: An array of generic key-value pairs to input any additional anti-fraud data.
 Payment-Init:AntiFraud-DaysSinceFidelityRegistration: The number of days since the fidelity card was issued.
 Payment-Init:AntiFraud-DaysSinceLastAccountChange: The number of days since the account has been modified.
@@ -192,7 +186,6 @@ Token-Generate:Card-ExpirationMonth: Two digits are used to represent the expira
 Token-Generate:Card-ExpirationYear: Four digits are used to represent the expiration year of the card.
 Token-Generate:Card-SingleUse: Use **false** if it's a previously saved credit card (default). Use **true** if the token was generated for single use.
 Token-Generate:Response-Brand: The brand of the credit card.
-Token-Generate:Response-BrandToken: Put a description here.
 Token-Generate:Response-Token: An irreversible token used to represent the credit card.
 Token-Generate:Response-ValidFor: The time in seconds where the CVV is valid in our servers. After this time, the CVV is discarded for PCI security reasons.
 Token-List:Response-CardToken-MaskedNumber: Masked credit card number.
