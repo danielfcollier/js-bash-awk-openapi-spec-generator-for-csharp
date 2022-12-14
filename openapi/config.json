@@ -1,0 +1,139 @@
+[
+  {
+    "name": "Merchant",
+    "basename": "tuna-merchant",
+    "endpoints": [
+      {
+        "name": "Register",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/Register/RegisterRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/Register/RegisterResponse.cs"
+        }
+      },
+      {
+        "name": "GetMerchant",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/GetMerchant/GetMerchantRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/GetMerchant/GetMerchantResponse.cs"
+        }
+      },
+      {
+        "name": "GetMerchantList",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/GetMerchantList/GetMerchantListRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/GetMerchantList/GetMerchantListResponse.cs"
+        }
+      },
+      {
+        "name": "Transactions",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/Transactions/TransactionsRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/Transactions/TransactionsResponse.cs"
+        }
+      },
+      {
+        "name": "Statement",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/Statement/StatementRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/Statement/StatementResponse.cs"
+        }
+      },
+      {
+        "name": "ConsolidatedStatement",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/ConsolidatedStatement/ConsolidatedStatementRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Merchants/ConsolidatedStatement/ConsolidatedStatementResponse.cs"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Payment",
+    "basename": "tuna-payment",
+    "endpoints": [
+      {
+        "name": "Init",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/Init/InitRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/Init/InitResponse.cs"
+        }
+      },
+      {
+        "name": "Cancel",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/Cancel/CancelRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/Cancel/CancelResponse.cs"
+        }
+      },
+      {
+        "name": "CancelItem",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/CancelItem/CancelItemRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/CancelItem/CancelItemResponse.cs"
+        }
+      },
+      {
+        "name": "Capture",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/Capture/CaptureRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/Capture/CaptureResponse.cs"
+        }
+      },
+      {
+        "name": "Status",
+        "source": {
+          "request": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/Status/StatusRequest.cs",
+          "response": "core/tuna.payment/Tuna.Payment.Engine/Services/Payments/Status/StatusResponse.cs"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Token",
+    "basename": "tuna-token",
+    "endpoints": [
+      {
+        "name": "NewSession",
+        "source": {
+          "request": "tokenization/tuna.token.api/tuna.token.engine/Api/Session/Create/CreateSessionRequest.cs",
+          "response": "tokenization/tuna.token.api/tuna.token.engine/Api/Session/Create/CreateSessionResponse.cs"
+        }
+      },
+      {
+        "name": "ValidateSession",
+        "source": {
+          "request": "tokenization/tuna.token.api/tuna.token.engine/Api/Session/Validate/ValidateRequest.cs",
+          "response": "tokenization/tuna.token.api/tuna.token.engine/Api/Session/Validate/ValidateResponse.cs"
+        }
+      },
+      {
+        "name": "Generate",
+        "source": {
+          "request": "tokenization/tuna.token.api/tuna.token.engine/Api/Token/Generate/GenerateRequest.cs",
+          "response": "tokenization/tuna.token.api/tuna.token.engine/Api/Token/Generate/GenerateResponse.cs"
+        }
+      },
+      {
+        "name": "List",
+        "source": {
+          "request": "tokenization/tuna.token.api/tuna.token.engine/Api/Token/List/ListRequest.cs",
+          "response": "tokenization/tuna.token.api/tuna.token.engine/Api/Token/List/ListResponse.cs"
+        }
+      },
+      {
+        "name": "Delete",
+        "source": {
+          "request": "tokenization/tuna.token.api/tuna.token.engine/Api/Token/Delete/DeleteRequest.cs",
+          "response": "tokenization/tuna.token.api/tuna.token.engine/Api/Token/Delete/DeleteResponse.cs"
+        }
+      },
+      {
+        "name": "Bind",
+        "source": {
+          "request": "tokenization/tuna.token.api/tuna.token.engine/Api/Token/Bind/BindRequest.cs",
+          "response": "tokenization/tuna.token.api/tuna.token.engine/Api/Token/Bind/BindResponse.cs"
+        }
+      }
+    ]
+  }
+]
