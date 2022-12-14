@@ -1,0 +1,17 @@
+summary: Example Template
+value:
+  dateFrom: date
+
+  dateTo: date
+
+  dateSortAsc: boolean
+
+  pageSize: int32
+
+  pageNumber: int32
+
+  merchantID: string
+
+  paymentStatusId: char
+
+  paymentMethodTypeId: char

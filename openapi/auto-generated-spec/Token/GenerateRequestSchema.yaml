@@ -1,0 +1,38 @@
+type: object
+properties:
+  card:
+    type: object
+    description: An object that holds credit card payment information.
+    nullable: true
+    properties:
+      cardNumber:
+        type: string
+        description: Number of the card as printed on the credit card.
+        nullable: true
+      cardHolderName:
+        type: string
+        description: Name of the cardholder as printed on the credit card.
+        nullable: true
+      expirationMonth:
+        type: integer
+        description: Two digits are used to represent the expiration month of the card.
+        format: int16
+        nullable: true
+      expirationYear:
+        type: integer
+        description: Four digits are used to represent the expiration year of the card.
+        format: int16
+        nullable: true
+      singleUse:
+        type: boolean
+        description: Use **false** if it's a previously saved credit card (default). Use **true** if the token was generated for single use.
+        nullable: true
+      cVV:
+        type: string
+        description: CVV number of the card as printed on the credit card.
+        nullable: true
+
+  sessionId:
+    type: string
+    description: An uuid session identifier that has been generated at [the **NewSession** endpoint.](/api/token#operation/NewSession)
+    nullable: true

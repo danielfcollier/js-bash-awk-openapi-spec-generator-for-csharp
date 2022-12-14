@@ -1,0 +1,33 @@
+type: object
+properties:
+  merchantId:
+    type: integer
+    description: Merchant's unique ID at Tuna.
+    format: int32
+
+  code:
+    type: integer
+    description: Numeric code that states if the execution was successful or not. Positive numbers mean success, negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+    format: int32
+
+  message:
+    type: object
+    description: An object that contains the message fields.
+    nullable: true
+    properties:
+      source:
+        type: integer
+        description: 'It is used to track the source of the message. Possible values are: <ol><li>"Engine"</li> <li>"AntiFraud"</li> <li>"Gateway"</li> <li>"Customization"</li> </ol>'
+        format: int32
+      code:
+        type: string
+        description: Numeric code that states if the execution was successful or not. Positive numbers mean success; negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+        nullable: true
+      message:
+        type: string
+        description: A human readable message that gives details about what the code means.
+        nullable: true
+      info:
+        type: string
+        description: When available, info gives further information about the execution of the process. This shouldn't matter for treating this response but can help dig information afterward. For example, it might contain internal messages from a payment method.
+        nullable: true

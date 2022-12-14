@@ -1,0 +1,18 @@
+type: object
+properties:
+  merchantID:
+    type: string
+    description: Your unique ID for the merchant.
+    nullable: true
+
+  dateFrom:
+    type: string
+    description: The date that search results will start from.
+    format: date
+    nullable: true
+
+  dateTo:
+    type: string
+    description: The date that search results will end.
+    format: date
+    nullable: true

@@ -1,0 +1,30 @@
+type: object
+properties:
+  todayAmount:
+    type: number
+    description: The amount to be received today.
+    format: double
+    nullable: true
+
+  futureAmount:
+    type: number
+    description: The confirmed amount to be received in the next days.
+    format: double
+    nullable: true
+
+  pendingAmount:
+    type: number
+    description: The amount from pending transactions, i.e., waiting to change the status (e.g. cancelations and in analysis).
+    format: double
+    nullable: true
+
+  doneAmount:
+    type: number
+    description: Amount settled in the applicable period.
+    format: double
+    nullable: true
+
+  code:
+    type: integer
+    description: Numeric code that states if the execution was successful or not. Positive numbers mean success, negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+    format: int32

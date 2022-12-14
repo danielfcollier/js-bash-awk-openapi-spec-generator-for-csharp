@@ -1,0 +1,7 @@
+summary: Example Template
+value:
+  token: string
+
+  cVV: string
+
+  sessionId: uuid

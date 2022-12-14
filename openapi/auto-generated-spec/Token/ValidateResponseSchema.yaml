@@ -1,0 +1,21 @@
+type: object
+properties:
+  paymentAccount:
+    type: string
+    description: Partner account identifier at Tuna.
+    nullable: true
+
+  partnerUniqueId:
+    type: string
+    description: Your unique ID for the order. It is used to track the order.
+    nullable: true
+
+  code:
+    type: string
+    description: Numeric code that states if the execution was successful or not. Positive numbers mean success; negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+    nullable: true
+
+  message:
+    type: string
+    description: A human readable message that gives details about what the code means.
+    nullable: true

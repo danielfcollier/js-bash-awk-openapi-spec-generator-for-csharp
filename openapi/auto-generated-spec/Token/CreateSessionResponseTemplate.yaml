@@ -1,0 +1,7 @@
+summary: Example Template
+value:
+  sessionId: uuid
+
+  code: string
+
+  message: string

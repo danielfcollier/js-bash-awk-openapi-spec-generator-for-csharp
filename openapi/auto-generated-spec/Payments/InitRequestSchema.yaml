@@ -1,0 +1,768 @@
+type: object
+properties:
+  tokenSession:
+    type: string
+    description: 'Required only for payment with **credit card**. Here use the **sessionId** created at the [Token API endpoint "New Session" method.](/api/token#operation/NewSession)'
+    nullable: true
+
+  partnerUniqueID:
+    type: string
+    description: Your unique ID for the order. It is used to track the order.
+    nullable: true
+
+  customer:
+    type: object
+    description: This object is used to pass on **customer data**, mainly for fraud prevention. Also, when using a saved card, only card tokens belonging to the user of this customer will work.
+    nullable: true
+    properties:
+      iD:
+        type: string
+        description: A string that identifies the customer.
+        nullable: true
+      email:
+        type: string
+        description: Email.
+        nullable: true
+      name:
+        type: string
+        description: Full name.
+        nullable: true
+      document:
+        type: string
+        description: Document ID.
+        nullable: true
+      documentType:
+        type: string
+        description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+        nullable: true
+      birthDate:
+        type: string
+        description: Birthday in date format.
+        format: date
+        nullable: true
+      gender:
+        type: string
+        description: Customer's gender.
+        nullable: true
+      daysSinceRegistration:
+        type: integer
+        description: Days since customer's registration.
+        format: int16
+        nullable: true
+      daysSinceLastLogin:
+        type: integer
+        description: Days since customer's last login date.
+        format: int16
+        nullable: true
+      daysSinceLastPasswordChange:
+        type: integer
+        description: Days since customer's last password change date.
+        format: int16
+        nullable: true
+      daysSinceLastPurchase:
+        type: integer
+        description: Days since customer's last purchase date.
+        format: int16
+        nullable: true
+      daysSinceFirstPurchase:
+        type: integer
+        description: Days since customer's first purchase date.
+        format: int16
+        nullable: true
+      data:
+        type: object
+        additionalProperties: {}
+        description: Any additional data used to refer to the customer.
+        nullable: true
+
+  vendor:
+    type: object
+    description: This object is used to pass on **vendor data**. This is mainly used for fraud prevention.
+    nullable: true
+    properties:
+      mCC:
+        type: string
+        description: Merchant Category Code (MCC).
+        nullable: true
+      code:
+        type: string
+        description: 'Commercial establishment of the vendor("EC" in Brazil).'
+        nullable: true
+      industry:
+        type: string
+        description: The activity of the vendor.
+        nullable: true
+      document:
+        type: string
+        description: Document ID.
+        nullable: true
+      documentType:
+        type: string
+        description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+        nullable: true
+      daysSinceRegistration:
+        type: integer
+        description: Days since vendor's registration (for marketplaces).
+        format: int16
+        nullable: true
+      daysSinceLastSell:
+        type: integer
+        description: Days since vendor's last sale (for marketplaces).
+        format: int16
+        nullable: true
+      daysSinceFirstSell:
+        type: integer
+        description: Days since vendor's first sale (for marketplaces).
+        format: int16
+        nullable: true
+
+  paymentItems:
+    type: object
+    description: This object holds the collection of items related to this order.
+    nullable: true
+    properties:
+      items:
+        type: array
+        description: An array of payment items.
+        nullable: true
+        items:
+          type: object
+          properties:
+            detailUniqueID:
+              type: string
+              description: An ID is used to identify this item inside your order. It can't be repeated inside the same order.
+              nullable: true
+            sku:
+              type: string
+              description: A product identifier. A stock-keeping unit (SKU) is a scannable bar code, most often seen printed on product labels.
+              nullable: true
+            ean:
+              type: string
+              description: Similar to SKU. The International Article Number, also known as European Article Number (EAN), is a standard describing a barcode symbology and numbering system. It is used in global trade to identify a specific retail product type, a specific packaging configuration, and a specific manufacturer.
+              nullable: true
+            amount:
+              type: number
+              description: The value of each unit of this payment item.
+              format: double
+            productID:
+              type: integer
+              description: An internal product identifier.
+              format: int32
+              nullable: true
+            productDescription:
+              type: string
+              description: Short description of the product, e.g., white shirt.
+              nullable: true
+            categoryID:
+              type: integer
+              description: A numeric category identifier of the item category.
+              format: int32
+              nullable: true
+            categoryName:
+              type: string
+              description: The name of the item category.
+              nullable: true
+            itemQuantity:
+              type: integer
+              description: The number of units included in this item.
+              format: int16
+            split:
+              type: object
+              description: This object is required when using split payments.
+              nullable: true
+              properties:
+                merchantID:
+                  type: string
+                  description: Your unique ID for the merchant.
+                  nullable: true
+                merchantDocument:
+                  type: string
+                  description: Merchant's document ID.
+                  nullable: true
+                merchantDocumentType:
+                  type: string
+                  description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+                  nullable: true
+                percent:
+                  type: number
+                  description: Percent per item to be paid to this merchant. This property overrides the default split rules.
+                  format: double
+                  nullable: true
+                amount:
+                  type: number
+                  description: Amount per item to be paid to this merchant. This property overrides the default split rules.
+                  format: double
+                  nullable: true
+            antiFraud:
+              type: object
+              description: This object holds specific anti-fraud data.
+              nullable: true
+              properties:
+                ean:
+                  type: string
+                  description: Ean product code.
+                  nullable: true
+                deliveryAddressee:
+                  type: string
+                  description: Name of the person receiving the goods at the delivery address.
+                  nullable: true
+                isEmailConfirmed:
+                  type: boolean
+                  description: States if the customer has verified his email address.
+                  nullable: true
+                wasCardChanged:
+                  type: boolean
+                  description: States if the customer has attempted to buy this order with a different card before.
+                  nullable: true
+                isPhoneNumberConfirmed:
+                  type: boolean
+                  description: Whether the customer has verified his phone number.
+                  nullable: true
+                loginCredential:
+                  type: string
+                  description: The username used to login (when logged in).
+                  nullable: true
+                isVIPClient:
+                  type: boolean
+                  description: States if this customer should be treated differently in a positive way (i.e., belongs to an allow list).
+                  nullable: true
+                isEmployeeClient:
+                  type: boolean
+                  description: Whether the customer is an employee of the merchant.
+                  nullable: true
+                wasAccountModified:
+                  type: boolean
+                  description: If the account has been modified.
+                  nullable: true
+                daysSinceLastAccountChange:
+                  type: integer
+                  description: The number of days since the account has been modified.
+                  format: int16
+                  nullable: true
+                fidelityNumber:
+                  type: string
+                  description: The fidelity number (when applied to this purchase).
+                  nullable: true
+                daysSinceFidelityRegistration:
+                  type: integer
+                  description: The number of days since the fidelity card was issued.
+                  format: int16
+                  nullable: true
+                daysSinceLastPointsExchange:
+                  type: integer
+                  description: The number of days since the fidelity card points were last used.
+                  format: int16
+                  nullable: true
+                fidelityBalance:
+                  type: integer
+                  description: Balance available at the fidelity card.
+                  format: int32
+                  nullable: true
+                amountPointsLastExchange:
+                  type: integer
+                  description: Amount of fidelity points used last time.
+                  format: int32
+                  nullable: true
+                phoneChargesInLast30Days:
+                  type: integer
+                  description: The number of recharges made to a prepaid phone number in the last 30 days.
+                  format: int16
+                  nullable: true
+                minutesChargedInLast30Days:
+                  type: integer
+                  description: The number of minutes charged to a prepaid phone number in the last 30 days.
+                  format: int16
+                  nullable: true
+                data:
+                  type: object
+                  description: An array of generic key-value pairs to input any additional anti-fraud data.
+                  nullable: true
+                  properties:
+                    key:
+                      type: string
+                      description: Dictionary key.
+                    value:
+                      type: string
+                      description: Dictionary value.
+            presentMessage:
+              type: string
+              description: '"Present" or "gift" message. Usually a message associated with a gift card.'
+              nullable: true
+
+  paymentData:
+    type: object
+    description: Information regarding the payment methods used in this order.
+    nullable: true
+    properties:
+      paymentMethods:
+        type: array
+        description: List of payment methods.
+        nullable: true
+        items:
+          type: object
+          properties:
+            paymentMethodType:
+              type: string
+              description: A code that indicates the type of payment method. Possible values are found at [payment methods reference table](/api/tuna-codes#payment-methods).
+              format: char
+            amount:
+              type: number
+              description: The total value charged through this payment method.
+              format: double
+            installments:
+              type: integer
+              description: The number of installments requested in this payment method.
+              format: int16
+            cardInfo:
+              type: object
+              description: An object that holds credit card payment information.
+              nullable: true
+              properties:
+                token:
+                  type: string
+                  description: An irreversible token used to represent the credit card. This token is obtained using Tuna's plugins or directly through our Token API.
+                  nullable: true
+                tokenProvider:
+                  type: string
+                  description: The name of the tokenization provider. If you are using Tuna Token API, it should be "Tuna"; otherwise, put the name of your provider.
+                  nullable: true
+                cardHolderName:
+                  type: string
+                  description: Name of the cardholder as printed on the credit card.
+                  nullable: true
+                alias:
+                  type: string
+                  description: A nickname to identify the card after it's saved.
+                  nullable: true
+                expirationMonth:
+                  type: integer
+                  description: Two digits are used to represent the expiration month of the card.
+                  format: int16
+                  nullable: true
+                expirationYear:
+                  type: integer
+                  description: Four digits are used to represent the expiration year of the card.
+                  format: int16
+                  nullable: true
+                billingInfo:
+                  type: object
+                  description: Customer's billing information for this payment method.
+                  nullable: true
+                  properties:
+                    number:
+                      type: string
+                      description: The billing info's number or identifier.
+                      nullable: true
+                    document:
+                      type: string
+                      description: Document ID.
+                      nullable: true
+                    documentType:
+                      type: string
+                      description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+                      nullable: true
+                    name:
+                      type: string
+                      description: Full name.
+                      nullable: true
+                    phone:
+                      type: string
+                      description: A string containing the phone number.
+                      nullable: true
+                    address:
+                      type: object
+                      description: An object that contains delivery address fields.
+                      nullable: true
+                      properties:
+                        street:
+                          type: string
+                          description: Street name.
+                          nullable: true
+                        number:
+                          type: string
+                          description: Building number.
+                          nullable: true
+                        complement:
+                          type: string
+                          description: Address complement (e.g., apartment number).
+                          nullable: true
+                        neighborhood:
+                          type: string
+                          description: Neighborhood.
+                          nullable: true
+                        city:
+                          type: string
+                          description: City.
+                          nullable: true
+                        state:
+                          type: string
+                          description: State.
+                          nullable: true
+                        country:
+                          type: string
+                          description: Country.
+                          nullable: true
+                        postalCode:
+                          type: string
+                          description: 'Postal code (pt-br: "CEP").'
+                          nullable: true
+                        phone:
+                          type: string
+                          description: A string containing the phone number.
+                          nullable: true
+                externalProviderInfo:
+                  type: string
+                  description: Specific data related to the external provider being used.
+                  nullable: true
+                brandName:
+                  type: string
+                  description: The brand of the credit card. You should use the brand name value returned by the Tuna plugin or Tuna Token API.
+                  nullable: true
+                tokenSingleUse:
+                  type: integer
+                  description: Use **0** if it's a previously saved credit card (default). Use **1** if the token was generated for single use.
+                  format: int32
+                  nullable: true
+                saveCard:
+                  type: boolean
+                  description: Whether to save this card for future use or not.
+                  nullable: true
+            boletoInfo:
+              type: object
+              description: Boleto specific information.
+              nullable: true
+              properties:
+                billingInfo:
+                  type: object
+                  description: Customer's billing information for this payment method.
+                  nullable: true
+                  properties:
+                    number:
+                      type: string
+                      description: The billing info's number or identifier.
+                      nullable: true
+                    document:
+                      type: string
+                      description: Document ID.
+                      nullable: true
+                    documentType:
+                      type: string
+                      description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+                      nullable: true
+                    name:
+                      type: string
+                      description: Full name.
+                      nullable: true
+                    phone:
+                      type: string
+                      description: A string containing the phone number.
+                      nullable: true
+                    address:
+                      type: object
+                      description: An object that contains delivery address fields.
+                      nullable: true
+                      properties:
+                        street:
+                          type: string
+                          description: Street name.
+                          nullable: true
+                        number:
+                          type: string
+                          description: Building number.
+                          nullable: true
+                        complement:
+                          type: string
+                          description: Address complement (e.g., apartment number).
+                          nullable: true
+                        neighborhood:
+                          type: string
+                          description: Neighborhood.
+                          nullable: true
+                        city:
+                          type: string
+                          description: City.
+                          nullable: true
+                        state:
+                          type: string
+                          description: State.
+                          nullable: true
+                        country:
+                          type: string
+                          description: Country.
+                          nullable: true
+                        postalCode:
+                          type: string
+                          description: 'Postal code (pt-br: "CEP").'
+                          nullable: true
+                        phone:
+                          type: string
+                          description: A string containing the phone number.
+                          nullable: true
+            customer:
+              type: object
+              description: This object is used to pass on **customer data**, mainly for fraud prevention. Also, when using a saved card, only card tokens belonging to the user of this customer will work.
+              nullable: true
+              properties:
+                iD:
+                  type: string
+                  description: A string that identifies the customer.
+                  nullable: true
+                email:
+                  type: string
+                  description: Email.
+                  nullable: true
+                name:
+                  type: string
+                  description: Full name.
+                  nullable: true
+                document:
+                  type: string
+                  description: Document ID.
+                  nullable: true
+                documentType:
+                  type: string
+                  description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+                  nullable: true
+                birthDate:
+                  type: string
+                  description: Birthday in date format.
+                  format: date
+                  nullable: true
+                gender:
+                  type: string
+                  description: Customer's gender.
+                  nullable: true
+                daysSinceRegistration:
+                  type: integer
+                  description: Days since customer's registration.
+                  format: int16
+                  nullable: true
+                daysSinceLastLogin:
+                  type: integer
+                  description: Days since customer's last login date.
+                  format: int16
+                  nullable: true
+                daysSinceLastPasswordChange:
+                  type: integer
+                  description: Days since customer's last password change date.
+                  format: int16
+                  nullable: true
+                daysSinceLastPurchase:
+                  type: integer
+                  description: Days since customer's last purchase date.
+                  format: int16
+                  nullable: true
+                daysSinceFirstPurchase:
+                  type: integer
+                  description: Days since customer's first purchase date.
+                  format: int16
+                  nullable: true
+                data:
+                  type: object
+                  additionalProperties: {}
+                  description: Any additional data used to refer to the customer.
+                  nullable: true
+            pix:
+              type: object
+              description: PIX specific information.
+              nullable: true
+              properties:
+                name:
+                  type: string
+                  description: Full name.
+                  nullable: true
+                document:
+                  type: string
+                  description: Document ID.
+                  nullable: true
+                documentType:
+                  type: string
+                  description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+                  nullable: true
+                expirationSeconds:
+                  type: integer
+                  description: Validity of the PIX code in seconds.
+                  format: int32
+                  nullable: true
+            softDescriptor:
+              type: string
+              description: The descriptor that shows up on the customer's statement after a transaction has been authorized.
+              nullable: true
+      antiFraud:
+        type: object
+        description: This object holds specific anti-fraud data.
+        nullable: true
+        properties:
+          ean:
+            type: string
+            description: Ean product code.
+            nullable: true
+          deliveryAddressee:
+            type: string
+            description: Name of the person receiving the goods at the delivery address.
+            nullable: true
+          isEmailConfirmed:
+            type: boolean
+            description: States if the customer has verified his email address.
+            nullable: true
+          wasCardChanged:
+            type: boolean
+            description: States if the customer has attempted to buy this order with a different card before.
+            nullable: true
+          isPhoneNumberConfirmed:
+            type: boolean
+            description: Whether the customer has verified his phone number.
+            nullable: true
+          loginCredential:
+            type: string
+            description: The username used to login (when logged in).
+            nullable: true
+          isVIPClient:
+            type: boolean
+            description: States if this customer should be treated differently in a positive way (i.e., belongs to an allow list).
+            nullable: true
+          isEmployeeClient:
+            type: boolean
+            description: Whether the customer is an employee of the merchant.
+            nullable: true
+          wasAccountModified:
+            type: boolean
+            description: If the account has been modified.
+            nullable: true
+          daysSinceLastAccountChange:
+            type: integer
+            description: The number of days since the account has been modified.
+            format: int16
+            nullable: true
+          fidelityNumber:
+            type: string
+            description: The fidelity number (when applied to this purchase).
+            nullable: true
+          daysSinceFidelityRegistration:
+            type: integer
+            description: The number of days since the fidelity card was issued.
+            format: int16
+            nullable: true
+          daysSinceLastPointsExchange:
+            type: integer
+            description: The number of days since the fidelity card points were last used.
+            format: int16
+            nullable: true
+          fidelityBalance:
+            type: integer
+            description: Balance available at the fidelity card.
+            format: int32
+            nullable: true
+          amountPointsLastExchange:
+            type: integer
+            description: Amount of fidelity points used last time.
+            format: int32
+            nullable: true
+          phoneChargesInLast30Days:
+            type: integer
+            description: The number of recharges made to a prepaid phone number in the last 30 days.
+            format: int16
+            nullable: true
+          minutesChargedInLast30Days:
+            type: integer
+            description: The number of minutes charged to a prepaid phone number in the last 30 days.
+            format: int16
+            nullable: true
+          data:
+            type: object
+            description: An array of generic key-value pairs to input any additional anti-fraud data.
+            nullable: true
+            properties:
+              key:
+                type: string
+                description: Dictionary key.
+              value:
+                type: string
+                description: Dictionary value.
+      deliveryAddress:
+        type: object
+        description: An object that contains delivery address fields.
+        nullable: true
+        properties:
+          street:
+            type: string
+            description: Street name.
+            nullable: true
+          number:
+            type: string
+            description: Building number.
+            nullable: true
+          complement:
+            type: string
+            description: Address complement (e.g., apartment number).
+            nullable: true
+          neighborhood:
+            type: string
+            description: Neighborhood.
+            nullable: true
+          city:
+            type: string
+            description: City.
+            nullable: true
+          state:
+            type: string
+            description: State.
+            nullable: true
+          country:
+            type: string
+            description: Country.
+            nullable: true
+          postalCode:
+            type: string
+            description: 'Postal code (pt-br: "CEP").'
+            nullable: true
+          phone:
+            type: string
+            description: A string containing the phone number.
+            nullable: true
+      countrycode:
+        type: string
+        description: Two letters ISO country code.
+        nullable: true
+      amount:
+        type: number
+        description: Total order amount.
+        format: double
+      salesChannel:
+        type: string
+        description: Origin of the purchase, e.g., web, app.
+        nullable: true
+
+  frontData:
+    type: object
+    description: This object contains data that must be extracted from the frontend of the checkout page.
+    nullable: true
+    properties:
+      sessionID:
+        type: string
+        description: A fingerprint ID produced by the anti-fraud being used.
+        nullable: true
+      ipAddress:
+        type: string
+        description: The ip address of the current session.
+        nullable: true
+      acceptHeader:
+        type: string
+        description: It is required when using 3DS.
+        nullable: true
+      userAgent:
+        type: string
+        description: It is required when using 3DS.
+        nullable: true
+      cookiesAccepted:
+        type: boolean
+        description: It is required when using 3DS.
+        nullable: true
+
+  accumulate:
+    type: boolean
+
+  extraInfo:
+    type: string
+    description: A string containing extra information. It is used just for customizations.
+    nullable: true

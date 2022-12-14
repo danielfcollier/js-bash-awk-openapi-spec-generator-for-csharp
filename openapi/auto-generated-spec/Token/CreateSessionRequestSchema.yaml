@@ -1,0 +1,15 @@
+type: object
+properties:
+  customer:
+    type: object
+    description: This object is used to pass on **customer data**.
+    nullable: true
+    properties:
+      iD:
+        type: string
+        description: A string that identifies the customer.
+        nullable: true
+      email:
+        type: string
+        description: Customer's email.
+        nullable: true

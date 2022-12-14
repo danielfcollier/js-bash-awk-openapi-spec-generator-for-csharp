@@ -1,0 +1,14 @@
+summary: Example Template
+value:
+  tokens:
+    - token: string
+      brand: string
+      cardHolderName: string
+      expirationMonth: int32
+      expirationYear: int32
+      maskedNumber: string
+      singleUse: boolean
+
+  code: string
+
+  message: string

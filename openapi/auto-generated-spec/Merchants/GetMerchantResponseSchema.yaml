@@ -1,0 +1,254 @@
+type: object
+properties:
+  merchant:
+    type: object
+    description: Details about a specific merchant.
+    nullable: true
+    properties:
+      id:
+        type: integer
+        description: Merchant's unique ID at Tuna.
+        format: int32
+      externalId:
+        type: string
+        description: Your unique ID for the merchant.
+        nullable: true
+      document:
+        type: string
+        description: Merchant's document ID.
+        nullable: true
+      documentType:
+        type: string
+        description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+        nullable: true
+      name:
+        type: string
+        description: 'The name of the person or legal business name (pt-br: "Razão Social").'
+        nullable: true
+      fantasyName:
+        type: string
+        description: 'Business fantasy name (pt-br: "Nome Fantasia").'
+        nullable: true
+      countryId:
+        type: integer
+        description: Numeric code for the country where the financial transaction occurs. The default value is 1 for Brazil.
+        format: int16
+        nullable: true
+      statusId:
+        type: string
+        description: 'After a successful registration process, i.e., the status is "1" which means "active", it is possible to either inactive or suspend an account by sending an update message with its related key values. Possible values are: <ul><li>"0" for "InAnalysis"</li> <li>"1": for "Active"</li> <li>"2": for "Inactive"</li> <li>"3": for "Suspended"</li> </ul>'
+        format: char
+        nullable: true
+        enum:
+          - "0"
+          - "1"
+          - "2"
+          - "3"
+      mccCode:
+        type: string
+        description: Merchant Category Code (MCC).
+        nullable: true
+      registrationDate:
+        type: string
+        description: The registration date of the merchant at Tuna.
+        format: date
+        nullable: true
+      condition:
+        type: string
+        description: It is the key in the Payment Condition Table, where are defined payment plan rules. Check out [here](/api/split-integration#payment-plans) how to define your Payment Condition Table.
+        nullable: true
+      websiteUrl:
+        type: string
+        description: Website URL.
+        nullable: true
+      stateFiscalDocument:
+        type: string
+        description: 'State fiscal document (pt-br: "Inscrição Estadual: recebe uma string de números ou a string "ISENTO" quando não possuir inscrição estadual.").'
+        nullable: true
+      acceptedContract:
+        type: boolean
+        description: A boolean to represent if the merchant has accepted the split contract.
+        nullable: true
+      marketplaceStore:
+        type: boolean
+        description: Indicates if the merchant is a marketplace store.
+        nullable: true
+      multiStore:
+        type: boolean
+        description: Whether the merchant is multistore or not.
+        nullable: true
+      birthday:
+        type: string
+        description: Birthday in date format.
+        format: date
+        nullable: true
+      occupation:
+        type: string
+        description: 'Profession or activity field, just required if the business is performed by a person (pt-br: "Para profissionais liberais que exercem atividade com CPF.").'
+        nullable: true
+      motherName:
+        type: string
+        description: A mother's name is just required if the business is performed by a person.
+        nullable: true
+      pixKeyType:
+        type: string
+        description: 'Possible values are: <ul><li>"1": for CPF</li> <li>"2": for CNPJ</li> <li>"3": for Email</li> <li>"4": for Cellphone</li> <li>"5": for Random Key</li> </ul>'
+        format: char
+        nullable: true
+      pixKey:
+        type: string
+        description: The merchant's PIX key value. It must be for the same **document ID** registered.
+        nullable: true
+      contact:
+        type: object
+        description: Merchant's contact information.
+        nullable: true
+        properties:
+          name:
+            type: string
+            description: Full name.
+            nullable: true
+          email:
+            type: string
+            description: Email.
+            nullable: true
+          phone:
+            type: string
+            description: A string containing the phone number.
+            nullable: true
+          cellPhone:
+            type: string
+            description: A string containing the cellphone number.
+            nullable: true
+      legalRepresentative:
+        type: object
+        description: A person who legally represents the business.
+        nullable: true
+        properties:
+          name:
+            type: string
+            description: Full name.
+            nullable: true
+          document:
+            type: string
+            description: 'Document ID (pt-br: only type "CPF").'
+            nullable: true
+          birthday:
+            type: string
+            description: Birthday in date format.
+            format: date
+            nullable: true
+      bankAccounts:
+        type: array
+        description: List of bank accounts associated with the merchant. Each bank account must be registered with the business document (either "CPF" or "CNPJ") used in the registration process.
+        nullable: true
+        items:
+          type: object
+          properties:
+            externalId:
+              type: string
+              description: Unique ID for the bank object.
+              nullable: true
+            document:
+              type: string
+              description: Merchant's document ID.
+              nullable: true
+            documentType:
+              type: string
+              description: 'Document ID type (pt-br: can be either "CPF" or "CNPJ"; can also be "SSN" or other types).'
+              nullable: true
+            accountType:
+              type: string
+              description: 'The type of bank account in the banking system. Possible values are: <ul><li>"C" for Checking Account (pt-br: "Conta-Corrente")</li> <li>"S" for Savings Account (pt-br: "Poupança")</li> </ul>'
+              format: char
+              enum:
+                - "C"
+                - "S"
+            bankCode:
+              type: string
+              description: 'String of numbers associated with the bank (pt-br: "Veja a lista completa no site do Banco Central do Brasil - https://www.bcb.gov.br/").'
+              nullable: true
+            agency:
+              type: string
+              description: Agency number represented as a string.
+              nullable: true
+            number:
+              type: string
+              description: The bank account number is composed of the account number and digit separated by a dash (e.g., "3429-4").
+              nullable: true
+            bankName:
+              type: string
+              description: Name of the bank associated with the bank code - this field is just for description, i.e., not required.
+              nullable: true
+      address:
+        type: object
+        description: An object that contains the merchant address fields.
+        nullable: true
+        properties:
+          street:
+            type: string
+            description: Street name.
+            nullable: true
+          number:
+            type: string
+            description: Building number.
+            nullable: true
+          complement:
+            type: string
+            description: Address complement (e.g., apartment number).
+            nullable: true
+          neighborhood:
+            type: string
+            description: Neighborhood.
+            nullable: true
+          city:
+            type: string
+            description: City.
+            nullable: true
+          state:
+            type: string
+            description: State.
+            nullable: true
+          country:
+            type: string
+            description: Country.
+            nullable: true
+          postalCode:
+            type: string
+            description: 'Postal code (pt-br: "CEP").'
+            nullable: true
+          phone:
+            type: string
+            description: A string containing the phone number.
+            nullable: true
+      payoutStatus:
+        type: string
+        description: Put a description here.
+        format: char
+        nullable: true
+      userInfo:
+        type: object
+        description: Put a description here.
+        nullable: true
+        properties:
+          id:
+            type: string
+            description: Put a description here.
+            nullable: true
+          firstName:
+            type: string
+            description: Put a description here.
+            nullable: true
+          lastName:
+            type: string
+            description: Put a description here.
+            nullable: true
+          email:
+            type: string
+            description: Email.
+            nullable: true
+
+  code:
+    type: integer
+    description: Numeric code that states if the execution was successful or not. Positive numbers mean success, negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+    format: int32

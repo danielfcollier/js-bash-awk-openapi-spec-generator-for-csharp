@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@redocly/openapi-cli": "^1.0.0-beta.95",
+    "cspell": "^6.17.0",
+    "cspell-dict-pt-br": "^1.1.1",
+    "openapi-to-postmanv2": "^4.4.1"
+  }
+}

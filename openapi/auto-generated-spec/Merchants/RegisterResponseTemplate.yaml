@@ -1,0 +1,11 @@
+summary: Example Template
+value:
+  merchantId: int32
+
+  code: int32
+
+  message:
+    source: int32
+    code: string
+    message: string
+    info: string

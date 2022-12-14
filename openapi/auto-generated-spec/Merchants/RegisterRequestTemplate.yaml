@@ -1,0 +1,78 @@
+summary: Example Template
+value:
+  externalId: string
+
+  document: string
+
+  documentType: string
+
+  name: string
+
+  fantasyName: string
+
+  countryId: int16
+
+  statusId: char
+
+  mccCode: string
+
+  registrationDate: date-time
+
+  condition: string
+
+  websiteUrl: string
+
+  stateFiscalDocument: string
+
+  acceptedContract: boolean
+
+  marketplaceStore: boolean
+
+  multiStore: boolean
+
+  birthday: date
+
+  occupation: string
+
+  motherName: string
+
+  pixKeyType: char
+
+  pixKey: string
+
+  contact:
+    name: string
+    email: string
+    phone: string
+    cellPhone: string
+
+  legalRepresentative:
+    name: string
+    document: string
+    birthday: date
+
+  bankAccounts:
+    - externalId: string
+      document: string
+      documentType: string
+      accountType: char
+      bankCode: string
+      agency: string
+      number: string
+      bankName: string
+
+  address:
+    street: string
+    number: string
+    complement: string
+    neighborhood: string
+    city: string
+    state: string
+    postalCode: string
+    phone: string
+
+  userInfo:
+    id: string
+    firstName: string
+    lastName: string
+    email: string

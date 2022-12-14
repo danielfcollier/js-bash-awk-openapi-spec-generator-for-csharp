@@ -1,0 +1,11 @@
+summary: Example Template
+value:
+  itemsDetail:
+    - itemQuantity: int16
+      detailUniqueID: string
+
+  paymentKey: string
+
+  partnerUniqueID: string
+
+  paymentDate: date-time

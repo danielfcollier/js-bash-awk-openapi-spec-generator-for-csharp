@@ -1,0 +1,7 @@
+summary: Example Template
+value:
+  merchantID: string
+
+  dateFrom: date
+
+  dateTo: date

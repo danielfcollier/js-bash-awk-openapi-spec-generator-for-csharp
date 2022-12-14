@@ -1,0 +1,13 @@
+summary: Example Template
+value:
+  externalId: string
+
+  fantasyName: string
+
+  cpfCnpj: string
+
+  contactEmail: string
+
+  rowsPerPage: int32
+
+  pageNumber: int32

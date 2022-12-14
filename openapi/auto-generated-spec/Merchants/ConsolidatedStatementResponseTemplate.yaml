@@ -1,0 +1,11 @@
+summary: Example Template
+value:
+  todayAmount: double
+
+  futureAmount: double
+
+  pendingAmount: double
+
+  doneAmount: double
+
+  code: int32

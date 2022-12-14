@@ -1,0 +1,9 @@
+summary: Example Template
+value:
+  paymentAccount: string
+
+  partnerUniqueId: string
+
+  code: string
+
+  message: string

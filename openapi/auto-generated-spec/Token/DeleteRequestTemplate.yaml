@@ -1,0 +1,5 @@
+summary: Example Template
+value:
+  token: string
+
+  sessionId: uuid

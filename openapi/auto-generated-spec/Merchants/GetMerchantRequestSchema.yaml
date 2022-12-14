@@ -1,0 +1,6 @@
+type: object
+properties:
+  merchantID:
+    type: string
+    description: Your unique ID for the merchant.
+    nullable: true

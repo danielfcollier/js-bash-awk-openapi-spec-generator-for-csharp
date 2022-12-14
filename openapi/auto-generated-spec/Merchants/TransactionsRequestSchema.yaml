@@ -1,0 +1,45 @@
+type: object
+properties:
+  dateFrom:
+    type: string
+    description: The date that search results will start from.
+    format: date
+
+  dateTo:
+    type: string
+    description: The date that search results will end.
+    format: date
+
+  dateSortAsc:
+    type: boolean
+    description: Sort results, **true** for ascending and **false** for descending.
+    nullable: true
+
+  pageSize:
+    type: integer
+    description: The maximum number of objects to be returned is between 1 and 200.
+    format: int32
+    nullable: true
+
+  pageNumber:
+    type: integer
+    description: The current page number for the results in the API call. This property is used for pagination control. In the response object, the property **TotalPages** value gives the maximum number of pages.
+    format: int32
+    nullable: true
+
+  merchantID:
+    type: string
+    description: Your unique ID for the merchant.
+    nullable: true
+
+  paymentStatusId:
+    type: string
+    description: The overall status of a payment. Please refer to the [payment status reference table](/api/tuna-codes#payment-status).
+    format: char
+    nullable: true
+
+  paymentMethodTypeId:
+    type: string
+    description: A code that indicates the type of payment method. Possible values are found at [payment methods reference table](/api/tuna-codes#payment-methods).
+    format: char
+    nullable: true

@@ -1,11 +1,9 @@
 FROM bash:latest
 WORKDIR /app
 
-COPY . .
+RUN apk add --update gawk icu-data-full make nodejs npm
 
-RUN apk add gawk make
-RUN apk add --update nodejs npm
-RUN apk add icu-data-full
+COPY . .
 
 RUN npm ci
 

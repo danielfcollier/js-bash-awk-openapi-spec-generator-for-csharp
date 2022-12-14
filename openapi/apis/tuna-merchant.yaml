@@ -119,10 +119,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Merchants/RegisterRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Merchants/RegisterRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Merchants/RegisterRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Merchants/RegisterRequestTemplate.yaml"
               RegisterRegistrationMinimalPF:
                 $ref: "../examples/Merchants/RegisterRequestRegistrationMinimalPF.yaml"
               RegisterRegistrationMinimalPJ:
@@ -137,20 +137,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Merchants/RegisterResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Merchants/RegisterResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Merchants/RegisterResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Merchants/RegisterResponseTemplate.yaml"
                 RegisterRegistrationMinimalPF:
                   $ref: "../examples/Merchants/RegisterResponseRegistrationMinimalPF.json"
                 RegisterRegistrationMinimalPJ:
                   $ref: "../examples/Merchants/RegisterResponseRegistrationMinimalPJ.json"
-        # "400":
-        #   description: Error
-        #   content:
-        #     application/json:
-        #       schema:
-        #         $ref: "./MerchantErrorResponseSchema.yaml"
 
   /api/Merchant/GetMerchant:
     post:
@@ -172,10 +166,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Merchants/GetMerchantRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Merchants/GetMerchantRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Merchants/GetMerchantRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Merchants/GetMerchantRequestTemplate.yaml"
               GetPF:
                 $ref: "../examples/Merchants/GetMerchantRequestGetPF.yaml"
               GetPJ:
@@ -186,10 +180,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Merchants/GetMerchantResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Merchants/GetMerchantResponseSchema.yaml"
               examples:
                 Template:
-                    $ref: "../spec/Merchants/GetMerchantResponseTemplate.yaml"
+                    $ref: "../auto-generated-spec/Merchants/GetMerchantResponseTemplate.yaml"
                 GetPJ:
                   $ref: "../examples/Merchants/GetMerchantResponseGetPJ.json"
                 GetPF:
@@ -215,10 +209,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Merchants/GetMerchantListRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Merchants/GetMerchantListRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Merchants/GetMerchantListRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Merchants/GetMerchantListRequestTemplate.yaml"
               GetMerchantList:
                 $ref: "../examples/Merchants/GetMerchantListRequest.yaml"
       responses:
@@ -227,10 +221,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Merchants/GetMerchantListResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Merchants/GetMerchantListResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Merchants/GetMerchantListResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Merchants/GetMerchantListResponseTemplate.yaml"
                 GetMerchantList:
                   $ref: "../examples/Merchants/GetMerchantListResponse.json"
 
@@ -254,10 +248,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Merchants/TransactionsRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Merchants/TransactionsRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Merchants/TransactionsRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Merchants/TransactionsRequestTemplate.yaml"
               Basic:
                 $ref: "../examples/Merchants/TransactionsRequestBasic.yaml"
               Filtered:
@@ -268,10 +262,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Merchants/TransactionsResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Merchants/TransactionsResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Merchants/TransactionsResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Merchants/TransactionsResponseTemplate.yaml"
 
   /api/Merchant/Statement:
     post:
@@ -293,20 +287,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Merchants/StatementRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Merchants/StatementRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Merchants/StatementRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Merchants/StatementRequestTemplate.yaml"
       responses:
         "200":
           description: Success
           content:
             application/json:
               schema:
-                $ref: "../spec/Merchants/StatementResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Merchants/StatementResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Merchants/StatementResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Merchants/StatementResponseTemplate.yaml"
 
   /api/Merchant/ConsolidatedStatement:
     post:
@@ -328,17 +322,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Merchants/ConsolidatedStatementRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Merchants/ConsolidatedStatementRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Merchants/ConsolidatedStatementRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Merchants/ConsolidatedStatementRequestTemplate.yaml"
       responses:
         "200":
           description: Success
           content:
             application/json:
               schema:
-                $ref: "../spec/Merchants/ConsolidatedStatementResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Merchants/ConsolidatedStatementResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Merchants/ConsolidatedStatementResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Merchants/ConsolidatedStatementResponseTemplate.yaml"

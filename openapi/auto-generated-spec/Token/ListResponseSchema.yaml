@@ -1,0 +1,48 @@
+type: object
+properties:
+  tokens:
+    type: array
+    description: List of tokens associated with a **sessionId**.
+    nullable: true
+    items:
+      type: object
+      properties:
+        token:
+          type: string
+          description: An irreversible token used to represent the credit card.
+          nullable: true
+        brand:
+          type: string
+          description: The brand of the credit card.
+          nullable: true
+        cardHolderName:
+          type: string
+          description: Name of the cardholder as printed on the credit card.
+          nullable: true
+        expirationMonth:
+          type: integer
+          description: Two digits are used to represent the expiration month of the card.
+          format: int32
+          nullable: true
+        expirationYear:
+          type: integer
+          description: Four digits are used to represent the expiration year of the card.
+          format: int32
+          nullable: true
+        maskedNumber:
+          type: string
+          description: Masked credit card number.
+          nullable: true
+        singleUse:
+          type: boolean
+          description: Use **false** if it's a previously saved credit card (default). Use **true** if the token was generated for single use.
+
+  code:
+    type: string
+    description: Numeric code that states if the execution was successful or not. Positive numbers mean success; negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+    nullable: true
+
+  message:
+    type: string
+    description: A human readable message that gives details about what the code means.
+    nullable: true

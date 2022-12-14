@@ -1,0 +1,43 @@
+type: object
+properties:
+  status:
+    type: string
+    description: The status of the payment method. Please refer to the [payment method status table](/api/tuna-codes#payment-method-status).
+    format: char
+    nullable: true
+
+  statusDescription:
+    type: string
+    description: The text description related with payment status code given by the property **status**.
+    nullable: true
+
+  methods:
+    type: array
+    description: An object containing all payment methods employed to perform the payment. For large purchases, a customer may use multiple credit cards, PIX, or, Boleto to complete the payment. As such, each method with its status is included in the response.
+    nullable: true
+    items:
+      type: object
+      properties:
+        statusDescription:
+          type: string
+          description: The text description related with payment status code given by the property **status**.
+          nullable: true
+        methodType:
+          type: string
+          description: A code that indicates the type of payment method. Possible values are found at [payment methods reference table](/api/tuna-codes#payment-methods).
+          format: char
+          nullable: true
+        status:
+          type: string
+          description: The overall status of a payment. Please refer to the [payment status reference table](/api/tuna-codes#payment-status).
+          format: char
+          nullable: true
+        methodId:
+          type: integer
+          description: A unique ID that identifies the payment method within the overall payment. For instance, if two payment methods were used in a given transaction, they will have IDs 0 and 1. In the next transaction, if three payment methods were used, they would have IDs 0, 1, and 2.
+          format: int16
+
+  code:
+    type: string
+    description: Numeric code that states if the execution was successful or not. Positive numbers mean success; negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+    nullable: true

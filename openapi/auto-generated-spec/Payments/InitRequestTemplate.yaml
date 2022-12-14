@@ -1,0 +1,183 @@
+summary: Example Template
+value:
+  tokenSession: uuid
+
+  partnerUniqueID: string
+
+  customer:
+    iD: string
+    email: string
+    name: string
+    document: string
+    documentType: string
+    birthDate: date
+    gender: string
+    daysSinceRegistration: int16
+    daysSinceLastLogin: int16
+    daysSinceLastPasswordChange: int16
+    daysSinceLastPurchase: int16
+    daysSinceFirstPurchase: int16
+
+  vendor:
+    mCC: string
+    code: string
+    industry: string
+    document: string
+    documentType: string
+    daysSinceRegistration: int16
+    daysSinceLastSell: int16
+    daysSinceFirstSell: int16
+
+  paymentItems:
+    items:
+      - detailUniqueID: string
+        sku: string
+        ean: string
+        amount: double
+        productID: int32
+        productDescription: string
+        categoryID: int32
+        categoryName: string
+        itemQuantity: int16
+        split:
+          merchantID: string
+          merchantDocument: string
+          merchantDocumentType: string
+          percent: double
+          amount: double
+        antiFraud:
+          ean: string
+          deliveryAddressee: string
+          isEmailConfirmed: boolean
+          wasCardChanged: boolean
+          isPhoneNumberConfirmed: boolean
+          loginCredential: string
+          isVIPClient: boolean
+          isEmployeeClient: boolean
+          wasAccountModified: boolean
+          daysSinceLastAccountChange: int16
+          fidelityNumber: string
+          daysSinceFidelityRegistration: int16
+          daysSinceLastPointsExchange: int16
+          fidelityBalance: int32
+          amountPointsLastExchange: int32
+          phoneChargesInLast30Days: int16
+          minutesChargedInLast30Days: int16
+          data:
+            key: string
+            value: string
+        presentMessage: string
+
+  paymentData:
+    paymentMethods:
+      - paymentMethodType: char
+        amount: double
+        installments: int16
+        cardInfo:
+          token: uuid
+          tokenProvider: string
+          cardHolderName: string
+          alias: string
+          expirationMonth: int16
+          expirationYear: int16
+          billingInfo:
+            number: string
+            document: string
+            documentType: string
+            name: string
+            phone: string
+            address:
+              street: string
+              number: string
+              complement: string
+              neighborhood: string
+              city: string
+              state: string
+              country: string
+              postalCode: string
+              phone: string
+          externalProviderInfo: string
+          brandName: string
+          tokenSingleUse: int32
+          saveCard: boolean
+        boletoInfo:
+          billingInfo:
+            number: string
+            document: string
+            documentType: string
+            name: string
+            phone: string
+            address:
+              street: string
+              number: string
+              complement: string
+              neighborhood: string
+              city: string
+              state: string
+              country: string
+              postalCode: string
+              phone: string
+        customer:
+          iD: string
+          email: string
+          name: string
+          document: string
+          documentType: string
+          birthDate: date
+          gender: string
+          daysSinceRegistration: int16
+          daysSinceLastLogin: int16
+          daysSinceLastPasswordChange: int16
+          daysSinceLastPurchase: int16
+          daysSinceFirstPurchase: int16
+        pix:
+          name: string
+          document: string
+          documentType: string
+          expirationSeconds: int32
+        softDescriptor: string
+    antiFraud:
+      ean: string
+      deliveryAddressee: string
+      isEmailConfirmed: boolean
+      wasCardChanged: boolean
+      isPhoneNumberConfirmed: boolean
+      loginCredential: string
+      isVIPClient: boolean
+      isEmployeeClient: boolean
+      wasAccountModified: boolean
+      daysSinceLastAccountChange: int16
+      fidelityNumber: string
+      daysSinceFidelityRegistration: int16
+      daysSinceLastPointsExchange: int16
+      fidelityBalance: int32
+      amountPointsLastExchange: int32
+      phoneChargesInLast30Days: int16
+      minutesChargedInLast30Days: int16
+      data:
+        key: string
+        value: string
+    deliveryAddress:
+      street: string
+      number: string
+      complement: string
+      neighborhood: string
+      city: string
+      state: string
+      country: string
+      postalCode: string
+      phone: string
+    countrycode: string
+    amount: double
+    salesChannel: string
+
+  frontData:
+    sessionID: string
+    ipAddress: string
+    acceptHeader: string
+    userAgent: string
+    cookiesAccepted: boolean
+
+  accumulate: boolean
+
+  extraInfo: string

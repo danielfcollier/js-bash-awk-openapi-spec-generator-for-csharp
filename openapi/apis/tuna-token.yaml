@@ -120,10 +120,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Token/CreateSessionRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Token/CreateSessionRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Token/CreateSessionRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Token/CreateSessionRequestTemplate.yaml"
               Example:
                 $ref: "../examples/Token/NewSessionRequestExample.json"
       responses:
@@ -132,10 +132,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Token/CreateSessionResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Token/CreateSessionResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Token/CreateSessionResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Token/CreateSessionResponseTemplate.yaml"
                 Example:
                   $ref: "../examples/Token/NewSessionResponseExample.json"
 
@@ -159,10 +159,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Token/GenerateRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Token/GenerateRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Token/GenerateRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Token/GenerateRequestTemplate.yaml"
               Example:
                 $ref: "../examples/Token/GenerateRequestExample.json"
       responses:
@@ -171,10 +171,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Token/GenerateResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Token/GenerateResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Token/GenerateResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Token/GenerateResponseTemplate.yaml"
                 Example:
                   $ref: "../examples/Token/GenerateResponseExample.json"
                 SessionExpired:
@@ -200,10 +200,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Token/ListRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Token/ListRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Token/ListRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Token/ListRequestTemplate.yaml"
               Example:
                 $ref: "../examples/Token/ListRequestExample.json"
       responses:
@@ -212,10 +212,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Token/ListResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Token/ListResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Token/ListResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Token/ListResponseTemplate.yaml"
                 Example:
                   $ref: "../examples/Token/ListResponseExample.json"
                 SessionExpired:
@@ -241,10 +241,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Token/BindRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Token/BindRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Token/BindRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Token/BindRequestTemplate.yaml"
               Example:
                 $ref: "../examples/Token/BindRequestExample.json"
       responses:
@@ -253,10 +253,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Token/BindResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Token/BindResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Token/BindResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Token/BindResponseTemplate.yaml"
                 Example:
                   $ref: "../examples/Token/BindResponseExample.json"
 
@@ -280,10 +280,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Token/ValidateRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Token/ValidateRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Token/ValidateRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Token/ValidateRequestTemplate.yaml"
               Example:
                 $ref: "../examples/Token/ValidateSessionRequestExample.json"
       responses:
@@ -292,10 +292,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Token/ValidateResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Token/ValidateResponseSchema.yaml"
               examples:
                 Template:
-                    $ref: "../spec/Token/ValidateResponseTemplate.yaml"
+                    $ref: "../auto-generated-spec/Token/ValidateResponseTemplate.yaml"
                 Example:
                   $ref: "../examples/Token/ValidateSessionResponseExample.json"
 
@@ -319,10 +319,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Token/DeleteRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Token/DeleteRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Token/DeleteRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Token/DeleteRequestTemplate.yaml"
               Example:
                 $ref: "../examples/Token/DeleteRequestExample.json"
       responses:
@@ -331,10 +331,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Token/DeleteResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Token/DeleteResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Token/DeleteResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Token/DeleteResponseTemplate.yaml"
                 Example:
                   $ref: "../examples/Token/DeleteResponseExample.json"
                 CardNotRemoved:

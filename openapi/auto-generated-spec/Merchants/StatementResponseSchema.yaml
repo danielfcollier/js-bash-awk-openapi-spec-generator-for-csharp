@@ -1,0 +1,93 @@
+type: object
+properties:
+  statement:
+    type: array
+    description: List of statements.
+    nullable: true
+    items:
+      type: object
+      properties:
+        date:
+          type: string
+          description: The datetime for the related payment transaction.
+          format: date-time
+        id:
+          type: string
+          description: The unique payment ID.
+          nullable: true
+        orderId:
+          type: string
+          description: The unique order (transaction) ID.
+          nullable: true
+        type:
+          type: string
+          description: The nature of the financial operation.
+          nullable: true
+          enum:
+            - "transaction"
+            - "commission"
+            - "adjustment"
+            - "chargeback"
+        amount:
+          type: number
+          description: The amount for the related payment transaction.
+          format: double
+        sellerAmount:
+          type: number
+          description: The amount for the seller due to split rules.
+          format: double
+        sign:
+          type: string
+          description: The operation sign can be either "+" for incoming or "-" negative for revenues.
+          nullable: true
+        description:
+          type: string
+          description: Put a description here.
+          nullable: true
+        statusPayout:
+          type: string
+          nullable: true
+
+  totalPages:
+    type: integer
+    description: The maximum number of pages in the results. This property is used for pagination control along with **PageNumber**.
+    format: int32
+    nullable: true
+
+  pageNumber:
+    type: integer
+    description: The current page number for the results in the API call. This property is used for pagination control. In the response object, the property **TotalPages** value gives the maximum number of pages.
+    format: int32
+    nullable: true
+
+  code:
+    type: integer
+    description: Numeric code that states if the execution was successful or not. Positive numbers mean success, negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+    format: int32
+
+  message:
+    type: object
+    description: An object that contains the message fields.
+    nullable: true
+    properties:
+      source:
+        type: integer
+        description: 'It is used to track the source of the message. Possible values are: <ol><li>"Engine"</li> <li>"AntiFraud"</li> <li>"Gateway"</li> <li>"Customization"</li> </ol>'
+        format: int32
+      code:
+        type: string
+        description: Numeric code that states if the execution was successful or not. Positive numbers mean success; negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+        nullable: true
+      message:
+        type: string
+        description: A human readable message that gives details about what the code means.
+        nullable: true
+      info:
+        type: string
+        description: When available, info gives further information about the execution of the process. This shouldn't matter for treating this response but can help dig information afterward. For example, it might contain internal messages from a payment method.
+        nullable: true
+
+  externalId:
+    type: string
+    description: Your unique ID for the merchant.
+    nullable: true

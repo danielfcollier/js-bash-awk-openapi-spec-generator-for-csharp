@@ -1,0 +1,6 @@
+type: object
+properties:
+  sessionId:
+    type: string
+    description: An uuid session identifier that has been generated at [the **NewSession** endpoint.](/api/token#operation/NewSession)
+    nullable: true

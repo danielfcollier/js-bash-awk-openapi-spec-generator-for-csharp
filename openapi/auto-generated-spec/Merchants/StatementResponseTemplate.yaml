@@ -1,0 +1,26 @@
+summary: Example Template
+value:
+  statement:
+    - date: date-time
+      id: string
+      orderId: string
+      type: string
+      amount: double
+      sellerAmount: double
+      sign: string
+      description: string
+      statusPayout: string
+
+  totalPages: int32
+
+  pageNumber: int32
+
+  code: int32
+
+  message:
+    source: int32
+    code: string
+    message: string
+    info: string
+
+  externalId: string

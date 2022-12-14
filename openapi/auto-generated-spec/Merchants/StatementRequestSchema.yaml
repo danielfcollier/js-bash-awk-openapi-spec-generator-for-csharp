@@ -1,0 +1,41 @@
+type: object
+properties:
+  merchantID:
+    type: string
+    description: Your unique ID for the merchant.
+    nullable: true
+
+  dateFrom:
+    type: string
+    description: The date that search results will start from.
+    format: date
+    nullable: true
+
+  dateTo:
+    type: string
+    description: The date that search results will end.
+    format: date
+    nullable: true
+
+  pageSize:
+    type: integer
+    description: The maximum number of objects to be returned is between 1 and 200.
+    format: int32
+    nullable: true
+
+  pageNumber:
+    type: integer
+    description: The current page number for the results in the API call. This property is used for pagination control. In the response object, the property **TotalPages** value gives the maximum number of pages.
+    format: int32
+    nullable: true
+
+  serviceId:
+    type: integer
+    description: 'The split service identifier. For a complete reference, please, look at the table within the description of the property **serviceName**.'
+    format: int16
+    nullable: true
+
+  serviceName:
+    type: string
+    description: 'The split service name that you will receive your incoming money transfers. It can be accordingly to the table below: <ul><li>40: Tuna Split para PIX</li> <li>41: Tuna Split para Cartão</li> <li>36: GetNetSplit (you may change this name in your console).</li></ul>'
+    nullable: true

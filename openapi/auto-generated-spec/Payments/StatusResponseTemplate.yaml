@@ -1,0 +1,13 @@
+summary: Example Template
+value:
+  status: char
+
+  statusDescription: string
+
+  methods:
+    - statusDescription: string
+      methodType: char
+      status: char
+      methodId: int16
+
+  code: string

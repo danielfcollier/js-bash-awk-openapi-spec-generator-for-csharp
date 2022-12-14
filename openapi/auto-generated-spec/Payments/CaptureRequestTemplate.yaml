@@ -1,0 +1,15 @@
+summary: Example Template
+value:
+  amount: double
+
+  cardsDetail:
+    - amount: double
+      methodId: int16
+
+  paymentKey: string
+
+  partnerUniqueID: string
+
+  paymentDate: date-time
+
+  accumulate: boolean

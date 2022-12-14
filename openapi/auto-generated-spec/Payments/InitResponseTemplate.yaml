@@ -1,0 +1,40 @@
+summary: Example Template
+value:
+  status: char
+
+  methods:
+    - methodType: char
+      status: char
+      methodId: int16
+      operationId: string
+      methodKey: string
+      message:
+        source: int32
+        code: string
+        message: string
+        info: string
+      redirectInfo:
+        url: string
+      pixInfo:
+        qRContent: string
+        qRImage: string
+      cryptoInfo:
+        coinValue: string
+        coinRateCurrency: string
+        coinAddr: string
+        coinQRCodeUrl: string
+        coin: string
+
+  paymentKey: string
+
+  partnerUniqueId: string
+
+  code: int32
+
+  message:
+    source: int32
+    code: string
+    message: string
+    info: string
+
+  operationId: string

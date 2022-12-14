@@ -1,0 +1,24 @@
+summary: Example Template
+value:
+  status: char
+
+  methods:
+    - methodType: char
+      status: char
+      methodId: int16
+      operationId: string
+      message:
+        source: int32
+        code: string
+        message: string
+        info: string
+
+  code: int32
+
+  message:
+    source: int32
+    code: string
+    message: string
+    info: string
+
+  operationId: string

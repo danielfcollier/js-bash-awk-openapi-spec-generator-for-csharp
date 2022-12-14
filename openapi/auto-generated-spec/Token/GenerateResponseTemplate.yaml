@@ -1,0 +1,11 @@
+summary: Example Template
+value:
+  token: string
+
+  brand: string
+
+  validFor: int32
+
+  code: string
+
+  message: string

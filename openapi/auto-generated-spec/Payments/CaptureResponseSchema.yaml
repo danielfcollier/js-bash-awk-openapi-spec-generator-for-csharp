@@ -1,0 +1,51 @@
+type: object
+properties:
+  status:
+    type: string
+    description: The status of the payment method. Please refer to the [payment method status table](/api/tuna-codes#payment-method-status).
+    format: char
+    nullable: true
+
+  methods:
+    type: array
+    description: An object containing all payment methods employed to perform the payment. For large purchases, a customer may use multiple credit cards, PIX, or, Boleto to complete the payment. As such, each method with its status is included in the response.
+    nullable: true
+    items:
+      type: object
+      properties:
+        methodType:
+          type: string
+          description: A code that indicates the type of payment method. Possible values are found at [payment methods reference table](/api/tuna-codes#payment-methods).
+          format: char
+          nullable: true
+        status:
+          type: string
+          description: The overall status of a payment. Please refer to the [payment status reference table](/api/tuna-codes#payment-status).
+          format: char
+          nullable: true
+        methodId:
+          type: integer
+          description: A unique ID that identifies the payment method within the overall payment. For instance, if two payment methods were used in a given transaction, they will have IDs 0 and 1. In the next transaction, if three payment methods were used, they would have IDs 0, 1, and 2.
+          format: int16
+
+  message:
+    type: object
+    description: An object that contains the message fields.
+    nullable: true
+    properties:
+      source:
+        type: integer
+        description: 'It is used to track the source of the message. Possible values are: <ol><li>"Engine"</li> <li>"AntiFraud"</li> <li>"Gateway"</li> <li>"Customization"</li> </ol>'
+        format: int32
+      code:
+        type: string
+        description: Numeric code that states if the execution was successful or not. Positive numbers mean success; negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
+        nullable: true
+      message:
+        type: string
+        description: A human readable message that gives details about what the code means.
+        nullable: true
+      info:
+        type: string
+        description: When available, info gives further information about the execution of the process. This shouldn't matter for treating this response but can help dig information afterward. For example, it might contain internal messages from a payment method.
+        nullable: true

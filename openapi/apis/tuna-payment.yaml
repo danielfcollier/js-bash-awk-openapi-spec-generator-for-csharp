@@ -127,10 +127,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Payments/InitRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Payments/InitRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Payments/InitRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Payments/InitRequestTemplate.yaml"
               Pix:
                 $ref: "../examples/Payments/InitRequestPaymentPix.json"
               Boleto:
@@ -169,10 +169,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Payments/InitResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Payments/InitResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Payments/InitResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Payments/InitResponseTemplate.yaml"
                 Pix:
                   $ref: "../examples/Payments/InitResponsePaymentPix.json"
                 Boleto:
@@ -217,10 +217,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Payments/CancelRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Payments/CancelRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Payments/CancelRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Payments/CancelRequestTemplate.yaml"
               PaymentKey:
                 $ref: "../examples/Payments/CancelRequestPaymentKey.yaml"
               PartnerUniqueId:
@@ -233,10 +233,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Payments/CancelResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Payments/CancelResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Payments/CancelResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Payments/CancelResponseTemplate.yaml"
                 PaymentKey:
                   $ref: "../examples/Payments/CancelResponsePaymentKey.json"
                 PartnerUniqueId:
@@ -265,10 +265,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Payments/CancelItemRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Payments/CancelItemRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Payments/CancelItemRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Payments/CancelItemRequestTemplate.yaml"
               PaymentKey:
                 $ref: "../examples/Payments/CancelItemRequestPaymentKey.json"
               PartnerUniqueId:
@@ -279,10 +279,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Payments/CancelItemResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Payments/CancelItemResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Payments/CancelItemResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Payments/CancelItemResponseTemplate.yaml"
                 PaymentKey:
                   $ref: "../examples/Payments/CancelItemResponsePaymentKey.json"
                 PartnerUniqueId:
@@ -310,20 +310,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Payments/CaptureRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Payments/CaptureRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Payments/CaptureRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Payments/CaptureRequestTemplate.yaml"
       responses:
         "200":
           description: Success
           content:
             application/json:
               schema:
-                $ref: "../spec/Payments/CancelResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Payments/CancelResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Payments/CancelResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Payments/CancelResponseTemplate.yaml"
 
   /api/Payment/Status:
     post:
@@ -354,10 +354,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../spec/Payments/StatusRequestSchema.yaml"
+              $ref: "../auto-generated-spec/Payments/StatusRequestSchema.yaml"
             examples:
               Template:
-                $ref: "../spec/Payments/StatusRequestTemplate.yaml"
+                $ref: "../auto-generated-spec/Payments/StatusRequestTemplate.yaml"
               Cancelled:
                 $ref: "../examples/Payments/StatusRequestCancelled.yaml"
               PartialRefunded:
@@ -368,10 +368,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../spec/Payments/StatusResponseSchema.yaml"
+                $ref: "../auto-generated-spec/Payments/StatusResponseSchema.yaml"
               examples:
                 Template:
-                  $ref: "../spec/Payments/StatusResponseTemplate.yaml"
+                  $ref: "../auto-generated-spec/Payments/StatusResponseTemplate.yaml"
                 SCancelledample:
                   $ref: "../examples/Payments/StatusResponseCancelled.json"
                 PartialRefunded:
@@ -398,17 +398,17 @@ paths:
   #       content:
   #         application/json:
   #           schema:
-  #             $ref: "../spec/Payments/OptionsRequestSchema.yaml"
+  #             $ref: "../auto-generated-spec/Payments/OptionsRequestSchema.yaml"
   #           examples:
   #             Template:
-  #               $ref: "../spec/Payments/OptionsRequestTemplate.yaml"
+  #               $ref: "../auto-generated-spec/Payments/OptionsRequestTemplate.yaml"
   #     responses:
   #       "200":
   #         description: Success
   #         content:
   #           application/json:
   #             schema:
-  #               $ref: "../spec/Payments/OptionsResponseSchema.yaml"
+  #               $ref: "../auto-generated-spec/Payments/OptionsResponseSchema.yaml"
   #             examples:
   #               Template:
-  #                 $ref: "../spec/Payments/OptionsResponseTemplate.yaml"
+  #                 $ref: "../auto-generated-spec/Payments/OptionsResponseTemplate.yaml"

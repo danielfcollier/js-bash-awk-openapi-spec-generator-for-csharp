@@ -1,0 +1,11 @@
+summary: Example Template
+value:
+  card:
+    cardNumber: string
+    cardHolderName: string
+    expirationMonth: int16
+    expirationYear: int16
+    singleUse: boolean
+    cVV: string
+
+  sessionId: uuid

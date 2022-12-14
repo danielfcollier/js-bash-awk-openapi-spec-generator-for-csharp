@@ -1,0 +1,32 @@
+summary: Example Template
+value:
+  totalCount: int32
+
+  totalPages: int32
+
+  totalAmount: double
+
+  transactions:
+    - paymentId: int32
+      partnerUniqueId: string
+      customerEmail: string
+      paymentDate: date-time
+      amount: double
+      paymentStatus: string
+      paymentMethodType: string
+      totalCount: int32
+      totalAmount: double
+      paymentMethodTypeId: char
+      cardBrandId: int16
+      cardBrandName: string
+      paymentDateTime{: date-time
+
+  code: int32
+
+  message:
+    source: int32
+    code: string
+    message: string
+    info: string
+
+  externalId: string

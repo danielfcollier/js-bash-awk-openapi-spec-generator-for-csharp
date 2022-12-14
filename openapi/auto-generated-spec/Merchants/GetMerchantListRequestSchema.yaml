@@ -1,0 +1,27 @@
+type: object
+properties:
+  externalId:
+    type: string
+    description: Your unique ID for the merchant.
+
+  fantasyName:
+    type: string
+    description: 'Business fantasy name (pt-br: "Nome Fantasia").'
+
+  cpfCnpj:
+    type: string
+    description: Merchant's document ID.
+
+  contactEmail:
+    type: string
+    description: Put a description here.
+
+  rowsPerPage:
+    type: integer
+    description: The maximum number of objects to be returned is between 1 and 200.
+    format: int32
+
+  pageNumber:
+    type: integer
+    description: The current page number for the results in the API call. This property is used for pagination control. In the response object, the property **TotalPages** value gives the maximum number of pages.
+    format: int32

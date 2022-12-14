@@ -1,0 +1,15 @@
+summary: Example Template
+value:
+  merchantID: string
+
+  dateFrom: date
+
+  dateTo: date
+
+  pageSize: int32
+
+  pageNumber: int32
+
+  serviceId: int16
+
+  serviceName: string
