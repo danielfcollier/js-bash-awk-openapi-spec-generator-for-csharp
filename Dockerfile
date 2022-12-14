@@ -7,5 +7,4 @@ COPY . .
 
 RUN npm ci
 
-RUN make api
-RUN make descriptions
+RUN make simplified

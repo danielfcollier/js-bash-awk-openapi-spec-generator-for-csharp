@@ -1,4 +1,5 @@
 node_modules/
 assets/
 csharp/*
-.env
+openapi/descriptions-not-used.yaml
+openapi/descriptions-missing.yaml

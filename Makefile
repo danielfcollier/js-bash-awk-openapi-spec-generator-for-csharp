@@ -1,37 +1,48 @@
+MAKEFLAGS += --silent
+MAKEFLAGS += 
+
 run:
-	@docker build -t docsbuilder .
-	@docker create --name solution docsbuilder
-	@docker cp solution:/app/assets ${PWD}
-	@docker cp solution:/app/openapi/auto-generated-spec ${PWD}/openapi
-	@docker cp solution:/app/openapi/descriptions-missing.yaml ${PWD}/openapi
-	@docker cp solution:/app/openapi/descriptions-not-used.yaml ${PWD}/openapi
-	@docker rm -f solution
+	@-$(MAKE) clean
+	@-docker build -t docsbuilder .
+	@-docker create --name solution docsbuilder
+	@-docker cp solution:/app/assets ${PWD}
+	@-docker cp solution:/app/openapi/auto-generated-spec ${PWD}/openapi
+# @-docker cp solution:/app/openapi/descriptions-missing.yaml ${PWD}/openapi
+# @-docker cp solution:/app/openapi/descriptions-not-used.yaml ${PWD}/openapi
+	@-docker rm -f solution
 
-api: api-build api-bundle
+script:
+	@-node ./src/main.js $(option)
 
-api-build:
-	@bash ./src/csharp2openapi/build.sh 1
+simplified:
+	@-clear
+	@-$(MAKE)  clean
+	@-$(MAKE) script option="specGenerator"
+	@-$(MAKE) script option="specParser"
+	@-rm -rf .tmp
+	@-mkdir -p ./assets/openapi
+	@-$(MAKE) script option=bundle
 
-api-bundle:
-	@bash ./src/csharp2openapi/bundler.sh
+complete: simplified postman spell lint descriptions
 
-descriptions:
-	@bash ./src/utils/descriptions-update.sh
-
-clean:
-	@rm -rf ./assets
-	@rm -rf ./assets
-	@rm -rf ./openapi/auto-generated-spec
-	@rm ./openapi/descriptions-missing.yaml
-	@rm ./openapi/descriptions-not-used.yaml
-
-cspell: cspell-api cspell-csharp
-
-cspell-api:
-	@bash ./src/cspell-tools/apis.sh
-
-cspell-csharp:
-	@bash ./src/cspell-tools/csharp.sh
+spell:
+	@-mkdir -p ./assets/errors-spell
+	@-$(MAKE) script option=spell
+	@-$(MAKE) script option=csharp
 
 lint:
-	@bash ./src/csharp2openapi/linter.sh
+	@-mkdir -p ./assets/errors-lint
+	@-$(MAKE) script option=lint
+
+postman:
+	@-mkdir -p ./assets/postman
+	@-$(MAKE) script option=postman
+
+descriptions:
+	@-mkdir -p ./assets/descriptions
+	@-$(MAKE) script option=descriptions
+
+clean:
+	@-rm -rf ./assets
+	@-rm ./openapi/descriptions-missing.yaml 2> /dev/null || true
+	@-rm ./openapi/descriptions-not-used.yaml 2> /dev/null || true
