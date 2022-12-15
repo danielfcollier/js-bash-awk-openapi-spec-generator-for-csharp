@@ -20,7 +20,7 @@ Create your documentation in the directory `openapi`, where:
   - OpenAPI **schemas** for request and response bodies provided
   - **Templates** with each object data type accordingly to the OpenAPI specification
 - optionally, it is possible to add more data, such as:
-  - examples
+  - examples: it is possible to use both `json` or `yaml` files
   - codes
 
 Exemplary structure of the `openapi` directory:
