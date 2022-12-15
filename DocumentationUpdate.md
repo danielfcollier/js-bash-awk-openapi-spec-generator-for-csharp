@@ -10,40 +10,41 @@ Command: `make run`
 
 3. Use git version control to help you verify if all the changes in the documentation are valid.
 
-#### Troubleshooting:
+### Troubleshooting
 
-- If any variable has been incorrectly generated, look up in the codebase for it or its related tag to understand if any adjustment is possible. The Spec Generator is sensible to missing spaces, make sure you have applied the following convention:
+If any variable has been incorrectly generated, look up in the codebase for it or its related tag to understand if any adjustment is possible. The Spec Generator is sensible to missing spaces, make sure you have applied the following convention:
 
 ```csharp
 /// description: @Description-Tag:MyVariable
 public TYPE MyVariable { get; set; }
 ```
 
-- private members will be excluded from the documentation
-- TYPE can be any primitive or object type
-  - the object class definition must be on the same file, it can be within comments if it is defined in other file
+- Private members will be excluded from the documentation
+- TYPE can be any primitive or object type: the object class definition must be on the same file, it can be within comments if it is defined in other file
 - TYPE can be nullable, i.e., TYPE?
-- it is possible to add the following flags:
-  - hide
+
+Flags are modifiers, possible values are:
+
+- hide the property from the public documentation
 
 ```csharp
 /// flag: hide
 ```
 
-    - enum: add the possible values separated with underscore
+- enum: add the possible values separated with underscore
 
 ```csharp
 /// flag: enum
 /// value: 0_1_2_3
 ```
 
-  - date: if the primite is `DateTime`, but it is used only as a date value
+- date: if the primitive is `DateTime`, but it is used only as a date value
 
 ```csharp
 /// flag: date
 ```
 
-  - uuid, empty, null, skip, method
+- uuid, empty, null, skip, method
 
 ## Descriptions Tags
 
@@ -144,7 +145,6 @@ Note that the generated files will have the structure and files:
 ../auto-generated-spec/{API Name}/{Endpoint Name}ResponseSchema.yaml
 ../auto-generated-spec/{API Name}/{Endpoint Name}ResponseTemplate.yaml
 ```
-
 
 ## Adding a New API
 
