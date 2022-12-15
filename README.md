@@ -66,6 +66,12 @@ The dictionary provides the relationship between tags and definitions.
 
 > Any description tags not documented will be automatically included in the dictionary with a placeholder **"Put a description here"** - lookup for these and put the proper descriptions before releasing the final OpenAPI document.
 
+### Codebase
+
+In the project directory, add a folder name `csharp` and within it add your codebase. The relative paths in your `config.json` are related to this directory.
+
+> Suggestion: add your codebase as git submodules in this directory.
+
 ### Code Notations in the Codebase
 
 More information and examples will be provided soon.
