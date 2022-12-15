@@ -1,5 +1,6 @@
 node_modules/
 assets/
 csharp/*
+!csharp/put_your_codebase_here
 openapi/descriptions-not-used.yaml
 openapi/descriptions-missing.yaml
