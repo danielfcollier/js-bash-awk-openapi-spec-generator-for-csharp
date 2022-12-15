@@ -1,5 +1,5 @@
 MAKEFLAGS += --silent
-MAKEFLAGS += 
+MAKEFLAGS += --no-print-directory
 
 run:
 	@-$(MAKE) clean
@@ -16,7 +16,7 @@ script:
 
 simplified:
 	@-clear
-	@-$(MAKE)  clean
+	@-$(MAKE) clean
 	@-$(MAKE) script option="specGenerator"
 	@-$(MAKE) script option="specParser"
 	@-rm -rf .tmp
