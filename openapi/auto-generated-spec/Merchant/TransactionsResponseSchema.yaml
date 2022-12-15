@@ -72,7 +72,7 @@ properties:
           type: string
           description: The brand name of the credit card. For a complete reference, please, look at the table within the description of the property **cardBrandId**.'
           nullable: true
-        paymentDateTime{:
+        paymentDateTime:
           type: string
           description: Put a description here.
           format: date-time

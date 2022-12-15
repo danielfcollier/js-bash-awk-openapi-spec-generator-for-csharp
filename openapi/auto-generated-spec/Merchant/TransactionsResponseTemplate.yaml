@@ -19,7 +19,7 @@ value:
       paymentMethodTypeId: char
       cardBrandId: int16
       cardBrandName: string
-      paymentDateTime{: date-time
+      paymentDateTime: date-time
 
   code: int32
 

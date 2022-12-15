@@ -325,6 +325,42 @@ paths:
                 Template:
                   $ref: "../auto-generated-spec/Payment/CancelResponseTemplate.yaml"
 
+  /api/Payment/AdvancedCapture:
+    post:
+      summary: AdvancedCapture
+      description: |
+        Advanced capture.
+      operationId: AdvancedCapture
+      parameters:
+        - in: header
+          name: x-tuna-account
+          required: true
+          schema:
+            $ref: "#/components/schemas/Account"
+        - in: header
+          name: x-tuna-apptoken
+          required: true
+          schema:
+            $ref: "#/components/schemas/AppToken"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "../auto-generated-spec/Payment/CaptureRequestSchema.yaml"
+            examples:
+              Template:
+                $ref: "../auto-generated-spec/Payment/CaptureRequestTemplate.yaml"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "../auto-generated-spec/Payment/CancelResponseSchema.yaml"
+              examples:
+                Template:
+                  $ref: "../auto-generated-spec/Payment/CancelResponseTemplate.yaml"
+
   /api/Payment/Status:
     post:
       summary: Status
