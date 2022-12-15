@@ -30,20 +30,20 @@ public TYPE MyVariable { get; set; }
 /// flag: hide
 ```
 
-    - enum: add the possible values separated with underscore
+  - enum: add the possible values separated with underscore
 
 ```csharp
 /// flag: enum
 /// value: 0_1_2_3
 ```
 
-    - date: if the primite is `DateTime`, but it is used only as a date value
+  - date: if the primite is `DateTime`, but it is used only as a date value
 
 ```csharp
 /// flag: date
 ```
 
-    - uuid, empty, null, skip, method
+  - uuid, empty, null, skip, method
 
 ## Descriptions Tags
 
@@ -56,20 +56,22 @@ public TYPE MyVariable { get; set; }
 - statement:
 
 ```yaml
-Merchant-ConsolidateStatement:DateFrom: The date that search results will start from.
+Description-Tag:MyVariable: The date that search results will start from.
 ```
 
 - quoted with escaped characters:
 
 ```yaml
-Merchant-Register:FantasyName: 'Business fantasy name (pt-br: \"Nome Fantasia\").'
+Description-Tag:MyVariable: 'Business fantasy name (pt-br: \"Nome Fantasia\").'
 ```
 
 - quoted with ordered list or unordered list elements:
 
 ```yaml
-Merchant-Statement:ServiceName: "The split service name that you will receive your incoming money transfers. It can be accordingly to the table below: <ul><li>40: Tuna Split para PIX</li> <li>41: Tuna Split para Cartão</li>  <li>36: GetNetSplit (you may change this name in your console).</li></ul>"
+Description-Tag:MyVariable: "TIt can be accordingly to the table below: <ul><li>S: Split</li> <li>C:  Cartão</li> </ul>"
 ```
+
+> It is not possible to break lines in the descriptions.
 
 ## Adding a New Endpoint
 
