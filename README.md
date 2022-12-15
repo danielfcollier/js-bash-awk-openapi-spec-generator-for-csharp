@@ -13,11 +13,11 @@ Developed with:
 
 ### OpenAPI
 
-Create your documentation in the directory: `openapi`, then:
+Create your documentation in the directory `openapi`, then:
 
-- the `apis` folder has the basic layout for your OpenAPI documents, each document is related to an API.
-- any generated code is `auto-generated-spec` folder, where it can be referenced in the OpenAPI document in the `apis`` folder. It will be generated:
-  - OpenAPI **schemas** for request and response body provided
+- the `apis` folder has the basic layout for your OpenAPI documents, each document is related to one API.
+- any generated code is put `auto-generated-spec` folder, where it can be referenced in the OpenAPI document in the `apis` folder. It will be generated:
+  - OpenAPI **schemas** for request and response bodies provided
   - **Templates** with each object data type accordingly to the OpenAPI specification
 - optionally, it is possible to add more data, such as:
   - examples
@@ -27,7 +27,7 @@ In the `config.json` is mandatory to relate your APIs with your .NET/C# codebase
 
 - name: name of the API
 - basename: name of the API document in the `apis` directory
-- endpoints: a list with endpoints of the API. It is a list of objects, with the following properties:
+- endpoints: a list of the API's endpoints. Each element of the list is an object with the following properties:
   - name: name of the endpoint
   - source: an object with the request and response files locations
 
@@ -54,13 +54,17 @@ It is possible to modify the process to generate more assets related with:
 - spell checks in the OpenAPI document and codebase
 - linting the OpenAPI with `openapi-cli`
 - generating a Postman Collection from the OpenAPI files
-- converting the descriptions tags `yaml` file to `csv`
+- converting the descriptions tags from `yaml` to `csv`
 
 To do this, change the `Dockerfile` to run `make complete` instead of the simplified version.
 
 ### Parsing Descriptions Tags
 
-Tags applied within code notations are parsed with the help of the dictionary provided in the `openapi/descriptions.yaml` file. The dictionary provides the relationship between tags and definitions. Any description tags not documented will be automatically included in the dictionary with a placeholder "Put a description here" - lookup for these and put the proper descriptions before releasing the final OpenAPI document.
+Tags applied within code notations are parsed with the help of the dictionary provided in the `openapi/descriptions.yaml` file.
+
+The dictionary provides the relationship between tags and definitions.
+
+> Any description tags not documented will be automatically included in the dictionary with a placeholder **"Put a description here"** - lookup for these and put the proper descriptions before releasing the final OpenAPI document.
 
 ### Code Notations in the Codebase
 
