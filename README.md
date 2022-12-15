@@ -13,20 +13,45 @@ Developed with:
 
 ### OpenAPI
 
-Create your documentation in the directory `openapi`, then:
+Create your documentation in the directory `openapi`, where:
 
-- the `apis` folder has the basic layout for your OpenAPI documents, each document is related to one API.
-- any generated code is put `auto-generated-spec` folder, where it can be referenced in the OpenAPI document in the `apis` folder. It will be generated:
+- the `apis` folder has the basic layout for your OpenAPI documents - each `yaml` document is related to one API
+- any generated code is put in the `auto-generated-spec` folder, where it can be referenced in the OpenAPI  `yaml` document in the `apis` folder. It will be generated:
   - OpenAPI **schemas** for request and response bodies provided
   - **Templates** with each object data type accordingly to the OpenAPI specification
 - optionally, it is possible to add more data, such as:
   - examples
   - codes
 
+Exemplary structure of the `openapi` directory:
+
+```
+openapi/
+├── apis
+│   ├── tuna-merchant.yaml
+│   ├── tuna-payment.yaml
+│   └── tuna-token.yaml
+├── auto-generated-spec
+│   ├── Merchant
+│   ├── Payment
+│   └── Token
+├── codes
+│   ├── errorList.json
+│   ├── paymentMethods.json
+│   ├── paymentMethodStatus.json
+│   └── paymentStatus.json
+├── config.json
+├── descriptions.yaml
+└── examples
+    ├── Merchant
+    ├── Payment
+    └── Token
+```
+
 In the `config.json` is mandatory to relate your APIs with your .NET/C# codebase. The JSON file receives a list of objects, with the following properties:
 
 - name: name of the API
-- basename: name of the API document in the `apis` directory
+- basename: name of the API file document in the `apis` directory
 - endpoints: a list of the API's endpoints. Each element of the list is an object with the following properties:
   - name: name of the endpoint
   - source: an object with the request and response files locations
@@ -52,7 +77,7 @@ make simplified
 It is possible to modify the process to generate more assets related with:
 
 - spell checks in the OpenAPI document and codebase
-- linting the OpenAPI with `openapi-cli`
+- linting the OpenAPI with the `redocly/openapi-cli`
 - generating a Postman Collection from the OpenAPI files
 - converting the descriptions tags from `yaml` to `csv`
 
