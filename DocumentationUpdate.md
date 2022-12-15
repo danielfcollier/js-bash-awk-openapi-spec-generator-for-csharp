@@ -30,7 +30,7 @@ public TYPE MyVariable { get; set; }
 /// flag: hide
 ```
 
-  - enum: add the possible values separated with underscore
+    - enum: add the possible values separated with underscore
 
 ```csharp
 /// flag: enum
@@ -136,11 +136,15 @@ The excerpt of the configuration file is shown bellow:
 }
 ```
 
-Note that the generated files will have the structure:
+Note that the generated files will have the structure and files:
 
 ```
-.../auto-generated-spec/{API Name}/{Endpoint Name}[Request or Response][Schema or Template].yaml
+../auto-generated-spec/{API Name}/{Endpoint Name}RequestSchema.yaml
+../auto-generated-spec/{API Name}/{Endpoint Name}RequestTemplate.yaml
+../auto-generated-spec/{API Name}/{Endpoint Name}ResponseSchema.yaml
+../auto-generated-spec/{API Name}/{Endpoint Name}ResponseTemplate.yaml
 ```
+
 
 ## Adding a New API
 
