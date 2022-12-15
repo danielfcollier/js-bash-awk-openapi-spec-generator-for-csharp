@@ -8,8 +8,8 @@ basename=$1;
 
 ### Source Code:
 
-inputFile="./${ASSETS}/${OPENAPI}/${basename}.yaml";
-outputFile="./${ASSETS}/errors-spell/${basename}-errors.csv";
+inputFile="./assets/openapi/${basename}.yaml";
+outputFile="./assets/errors-spell/${basename}-errors.csv";
 
 npx cspell --local=en,es,pt --unique --relative --no-summary --no-progress ${inputFile} \
   | gawk -i ./src/utils/functions.awk '{ print substr(trim($5),  2, length(trim($5)) - 2), "," , "," , $1 }' \

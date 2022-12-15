@@ -4,7 +4,7 @@
 source ${PWD}/.env;
 
 ### Input Variables:
-descriptions=$(ls ${OPENAPI}/descriptions*)
+descriptions=$(ls openapi/descriptions*)
 
 ### Source Code:
 
@@ -21,10 +21,10 @@ cat ${descriptions} \
       }
       print $1"@"description
     }' \
-  > ${ASSETS}"/descriptions.csv";
+  > assets"/descriptions.csv";
 
 # Generate a .csv file to fill missing descriptions
 cat ${descriptionsMissing} \
   | gawk 'BEGIN { FS = ": " } { print $1,"," }' \
-  > ${ASSETS}"/descriptions-missing.csv";
+  > assets"/descriptions-missing.csv";
 

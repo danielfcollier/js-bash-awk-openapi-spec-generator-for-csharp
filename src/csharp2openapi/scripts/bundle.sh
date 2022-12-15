@@ -8,7 +8,7 @@ basename=$1;
 
 ### Source Code:
 
-inputFile="./${OPENAPI}/apis/${basename}.yaml";
-outputFile="./${ASSETS}/${OPENAPI}/${basename}.yaml";
+inputFile="./openapi/apis/${basename}.yaml";
+outputFile="./assets/openapi/${basename}.yaml";
 
 npx @redocly/openapi-cli bundle ${inputFile} --dereferenced --output ${outputFile};

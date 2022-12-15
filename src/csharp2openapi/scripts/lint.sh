@@ -8,8 +8,8 @@ basename=$1;
 
 ### Source Code:
 
-inputFile="./${ASSETS}/${OPENAPI}/${basename}.yaml";
-outputFile="./${ASSETS}/errors-lint/${basename}-errors.txt";
+inputFile="./assets/openapi/${basename}.yaml";
+outputFile="./assets/errors-lint/${basename}-errors.txt";
 
 # Most errors are due to missing ERROR RESPONSES in the OpenAPI file
 npx @redocly/openapi-cli lint ${inputFile} 2> ${outputFile};

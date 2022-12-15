@@ -11,9 +11,9 @@ specFile="${tmp}/specFile.txt";
 tempFile=${tmp}"/tempFile.txt";
 getDescriptions=${tmp}"/getDescriptions.awk";
 
-descriptions="./${OPENAPI}/descriptions.yaml";
-descriptionsNotUsed="./${OPENAPI}/descriptions-not-used.yaml";
-descriptionsMissing="./${OPENAPI}/descriptions-missing.yaml";
+descriptions="./openapi/descriptions.yaml";
+descriptionsNotUsed="./openapi/descriptions-not-used.yaml";
+descriptionsMissing="./openapi/descriptions-missing.yaml";
 
 ### Source Code:
 

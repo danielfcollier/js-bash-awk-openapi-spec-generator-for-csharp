@@ -18,7 +18,7 @@ showNullables=1; # 1 for true; 0 for false
 echo; echo "Processing... ${csharpFile}";
 
 runAWK="gawk -v showNullables=${showNullables} -i ./src/utils/functions.awk -f ./src/csharp2openapi/utils";
-outputBasename="${OPENAPI}/auto-generated-spec/${name}/$(echo ${csharpFile} | gawk 'BEGIN{ FS="/"; } { split($(NF), word, "\\."); print word[1]; }')";
+outputBasename="openapi/auto-generated-spec/${name}/$(echo ${csharpFile} | gawk 'BEGIN{ FS="/"; } { split($(NF), word, "\\."); print word[1]; }')";
 
 awkSchema="${runAWK}/schemaBuilder.awk";
 eval ${awkSchema} ${csharpFile}" > " "${outputBasename}Schema.yaml" \

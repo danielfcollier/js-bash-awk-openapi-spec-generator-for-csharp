@@ -9,7 +9,7 @@ basename=$1;
 ### Source Code:
 
 root="csharp";
-outputFile="./${ASSETS}/errors-spell/${root}-errors.csv";
+outputFile="./assets/errors-spell/${root}-errors.csv";
 
 ls -R ${root} \
   | gawk '{ if (substr($0, 1, 1) == ".") print substr($0, 1, length($0) - 1)"/**/*.cs" }' \
