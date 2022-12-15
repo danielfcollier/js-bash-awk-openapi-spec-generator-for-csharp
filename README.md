@@ -89,7 +89,7 @@ Tags applied within code notations are parsed with the help of the dictionary pr
 
 The dictionary provides the relationship between tags and definitions.
 
-> Any description tags not documented will be automatically included in the dictionary with a placeholder **"Put a description here"** - look up for these and put the proper descriptions before releasing the final OpenAPI document.
+> Any description tags not documented will be automatically included in the dictionary with a placeholder **"Put a description here."** - look up for these and put the proper descriptions before releasing the final OpenAPI document.
 
 ### Codebase
 

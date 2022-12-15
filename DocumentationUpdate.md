@@ -49,26 +49,26 @@ public TYPE MyVariable { get; set; }
 
 1. First, run the **Main Routine**, it will update automatically with new descripion tags the file `openapi/descriptions.yaml`.
 
-2. All new tags will have the placeholder **put a description here**. Thus, put the new description.
+2. All new tags will have the placeholder **Put a description here.**. Thus, put the new description.
 
 3. The new description accept the following convention:
 
 - statement:
 
 ```yaml
-Description-Tag:MyVariable: The date that search results will start from.
+Description-Tag:MyVariable: Put a description here.
 ```
 
 - quoted with escaped characters:
 
 ```yaml
-Description-Tag:MyVariable: 'Business fantasy name (pt-br: \"Nome Fantasia\").'
+Description-Tag:MyVariable: 'Put a description here. (pt-br: \"Coloque uma descrição aqui.\").'
 ```
 
 - quoted with ordered list or unordered list elements:
 
 ```yaml
-Description-Tag:MyVariable: "TIt can be accordingly to the table below: <ul><li>S: Split</li> <li>C:  Cartão</li> </ul>"
+Description-Tag:MyVariable: "Put a description here: <ul><li>Item 1</li> <li>Item 2</li> </ul>"
 ```
 
 > It is not possible to break lines in the descriptions.
