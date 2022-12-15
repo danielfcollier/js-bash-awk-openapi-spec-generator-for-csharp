@@ -7,8 +7,9 @@ run:
 	@-docker create --name solution docsbuilder
 	@-docker cp solution:/app/assets ${PWD}
 	@-docker cp solution:/app/openapi/auto-generated-spec ${PWD}/openapi
-# @-docker cp solution:/app/openapi/descriptions-missing.yaml ${PWD}/openapi
-# @-docker cp solution:/app/openapi/descriptions-not-used.yaml ${PWD}/openapi
+	@-docker cp solution:/app/openapi/descriptions.yaml ${PWD}/openapi
+	@-docker cp solution:/app/openapi/descriptions-missing.yaml ${PWD}/openapi
+	@-docker cp solution:/app/openapi/descriptions-not-used.yaml ${PWD}/openapi
 	@-docker rm -f solution
 
 script:

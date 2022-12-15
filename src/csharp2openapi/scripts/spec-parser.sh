@@ -25,17 +25,30 @@ cat ${specFile} \
   > ${tempFile};
 
 # Compare the documented tags with the current tags. And, update the documentation with the diff:
-diff ${tempFile} <( cat ${descriptions} | gawk '{ print substr($1, 1, length($1) - 1); }' | sort -u ) \
-  | gawk 'NF > 1 { if ($1 == "<") { print $2": Put a description here." } }' \
-  >> ${descriptions};
+if [ -f /.dockerenv ]; then
+  diff ${tempFile} <( cat ${descriptions} | gawk '{ print substr($1, 1, length($1) - 1); }' | sort -u ) \
+    | gawk ' NF == 1 { if (match($0, /^-/)) { print substr($0, 2, length($0) - 1)": Put a description here."; } }' \
+    >> ${descriptions};
+else
+  diff ${tempFile} <( cat ${descriptions} | gawk '{ print substr($1, 1, length($1) - 1); }' | sort -u ) \
+    | gawk 'NF > 1 { if ($1 == "<") { print $2": Put a description here." } }' \
+    >> ${descriptions};
+fi
 
 # Multi-purpose outputs:
 
 # >>> Show non used descriptions
-diff ${tempFile} <( cat ${descriptions} | gawk '{ print substr($1, 1, length($1) - 1); }' | sort -u ) \
-  | gawk 'NF > 1 { if ($1 == ">") { print $2": ---" } }' \
-  > ${descriptionsNotUsed} \
-  ; rm ${tempFile} ;
+if [ -f /.dockerenv ]; then
+  diff ${tempFile} <( cat ${descriptions} | gawk '{ print substr($1, 1, length($1) - 1); }' | sort -u ) \
+    | gawk ' NF == 1 { if (match($0, /^-/)) { print substr($0, 2, length($0) - 1)": ---"; } }' \
+    > ${descriptionsNotUsed} \
+    ; rm ${tempFile} ;
+else
+  diff ${tempFile} <( cat ${descriptions} | gawk '{ print substr($1, 1, length($1) - 1); }' | sort -u ) \
+    | gawk 'NF > 1 { if ($1 == ">") { print $2": ---" } }' \
+    > ${descriptionsNotUsed} \
+    ; rm ${tempFile} ;
+fi
 
 # >>> Sort descriptions
 cat ${descriptions} \
@@ -47,10 +60,19 @@ cat ${descriptions} \
   ; rm ${tempFile};
 
 # >>> Show missing descriptions
-diff \
-  <( grep -e "Put a description here." -e "ENUM" -e "''" ${descriptions} | gawk '{ print $1 }' | sort | uniq ) \
-  <( cat ${descriptionsNotUsed} | gawk '{ print $1 }' | sort | uniq) | gawk 'NF == 2 { print $2, "---" }' \
-  > ${descriptionsMissing};
+if [ -f /.dockerenv ]; then
+  diff \
+    <( grep -e "Put a description here." -e "ENUM" -e "''" ${descriptions} | gawk '{ print $1 }' | sort | uniq ) \
+    <( cat ${descriptionsNotUsed} | gawk '{ print $1 }' | sort | uniq) \
+    | gawk ' NF == 1 { if (match($0, /^-/)) { print substr($0, 2, length($0) - 1)": ---"; } }' \
+    > ${descriptionsMissing};
+else
+  diff \
+    <( grep -e "Put a description here." -e "ENUM" -e "''" ${descriptions} | gawk '{ print $1 }' | sort | uniq ) \
+    <( cat ${descriptionsNotUsed} | gawk '{ print $1 }' | sort | uniq) \
+    | gawk 'NF == 2 { print $2, "---" }' \
+    > ${descriptionsMissing};
+fi
 
 # TODO(@danielfcollier): Work on Hidden Properties Reports
 #
@@ -104,7 +126,7 @@ for file in $(cat ${specFile}); do
           }
       }' \
       > ${tempFile};
-    
+
     cat ${tempFile} > ${file}
 done
 

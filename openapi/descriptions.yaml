@@ -5,11 +5,11 @@ Merchant-ConsolidateStatement:FutureAmount: The confirmed amount to be received 
 Merchant-ConsolidateStatement:PendingAmount: The amount from pending transactions, i.e., waiting to change the status (e.g. cancelations and in analysis).
 Merchant-ConsolidateStatement:TodayAmount: The amount to be received today.
 Merchant-GetMerchant:Id: Merchant's unique ID at Tuna.
+Merchant-GetMerchant:Merchant: Details about a specific merchant.
+Merchant-GetMerchant:MerchantId: Your unique ID for the merchant.
 Merchant-GetMerchantList:ListTotal: The total count of merchants in the query.
 Merchant-GetMerchantList:MerchantList: List with all your merchants.
 Merchant-GetMerchantList:RowsPerPage: The maximum number of objects to be returned is between 1 and 200.
-Merchant-GetMerchant:Merchant: Details about a specific merchant.
-Merchant-GetMerchant:MerchantId: Your unique ID for the merchant.
 Merchant-Register:AcceptedContract: A boolean to represent if the merchant has accepted the split contract.
 Merchant-Register:Address: An object that contains the merchant address fields.
 Merchant-Register:BankAccount-AccountType: 'The type of bank account in the banking system. Possible values are: <ul><li>\"C\" for Checking Account (pt-br: \"Conta-Corrente\")</li> <li>\"S\" for Savings Account (pt-br: \"Poupança\")</li> </ul>'
@@ -21,22 +21,26 @@ Merchant-Register:BankAccount-Number: The bank account number is composed of the
 Merchant-Register:BankAccounts: List of bank accounts associated with the merchant. Each bank account must be registered with the business document (either \"CPF\" or \"CNPJ\") used in the registration process.
 Merchant-Register:Condition: It is the key in the Payment Condition Table, where are defined payment plan rules. Check out [here](/api/split-integration#payment-plans) how to define your Payment Condition Table.
 Merchant-Register:Contact: Merchant's contact information.
+Merchant-Register:ContactInfo-Email: Put a description here.
 Merchant-Register:Document: Merchant's document ID.
 Merchant-Register:ExternalId: Your unique ID for the merchant.
 Merchant-Register:FantasyName: 'Business fantasy name (pt-br: \"Nome Fantasia\").'
-Merchant-Register:LegalRepresentative: A person who legally represents the business.
 Merchant-Register:LegalRepresentative-Document: 'Document ID (pt-br: only type \"CPF\").'
+Merchant-Register:LegalRepresentative: A person who legally represents the business.
 Merchant-Register:MarketplaceStore: Indicates if the merchant is a marketplace store.
 Merchant-Register:MotherName: A mother's name is just required if the business is performed by a person.
 Merchant-Register:MultiStore: Whether the merchant is multistore or not.
 Merchant-Register:Name: 'The name of the person or legal business name (pt-br: \"Razão Social\").'
 Merchant-Register:Occupation: 'Profession or activity field, just required if the business is performed by a person (pt-br: \"Para profissionais liberais que exercem atividade com CPF.\").'
+Merchant-Register:PayoutStatus: Put a description here.
 Merchant-Register:PixKey: The merchant's PIX key value. It must be for the same **document ID** registered.
 Merchant-Register:PixKeyType: 'Possible values are: <ul><li>\"1\": for CPF</li> <li>\"2\": for CNPJ</li> <li>\"3\": for Email</li> <li>\"4\": for Cellphone</li> <li>\"5\": for Random Key</li> </ul>'
 Merchant-Register:RegistrationDate: The registration date of the merchant at Tuna.
 Merchant-Register:StateFiscalDocument: 'State fiscal document (pt-br: \"Inscrição Estadual: recebe uma string de números ou a string \"ISENTO\" quando não possuir inscrição estadual.\").'
 Merchant-Register:StatusId: 'After a successful registration process, i.e., the status is \"1\" which means \"active\", it is possible to either inactive or suspend an account by sending an update message with its related key values. Possible values are: <ul><li>\"0\" for \"InAnalysis\"</li> <li>\"1\": for \"Active\"</li> <li>\"2\": for \"Inactive\"</li> <li>\"3\": for \"Suspended\"</li> </ul>'
+Merchant-Register:UserInfo: Put a description here.
 Merchant-Statement:Amount: The amount for the related payment transaction.
+Merchant-Statement:Description: Put a description here.
 Merchant-Statement:Id: The unique payment ID.
 Merchant-Statement:OrderId: The unique order (transaction) ID.
 Merchant-Statement:SellerAmount: The amount for the seller due to split rules.
@@ -47,9 +51,9 @@ Merchant-Statement:Statement: List of statements.
 Merchant-Statement:Type: The nature of the financial operation.
 Merchant-Transactions:CardBrandId: 'The brand identifier is related to the brand name of the credit card.  It can be accordingly to the table below: <ul><li>1: MasterCard</li> <li>2: VISA</li> <li>3: Amex</li> <li>4: DinersClub</li> <li>5: Elo</li> <li>6: Hipercard</li> <li>7: Alelo</li> <li>8: PrivateLabel</li> <li>9: GiftCard</li> <li>10: Voucher</li> <li>11: Cabal</li> <li>12: Banescard</li> <li>13: JCB</li> <li>14: Mais</li> <li>15: Ourocard</li> <li>16: Sorocred</li> <li>17: Verdecard</li> <li>18: Credz</li> <li>19: Goodcard</li> </ul>'
 Merchant-Transactions:CardBrandName: The brand name of the credit card. For a complete reference, please, look at the table within the description of the property **cardBrandId**.'
+Merchant-Transactions:Date: The datetime for the related payment transaction.
 Merchant-Transactions:DateFrom: The date that search results will start from.
 Merchant-Transactions:DateSortAsc: Sort results, **true** for ascending and **false** for descending.
-Merchant-Transactions:Date: The datetime for the related payment transaction.
 Merchant-Transactions:DateTo: The date that search results will end.
 Merchant-Transactions:PageNumber: The current page number for the results in the API call. This property is used for pagination control. In the response object, the property **TotalPages** value gives the maximum number of pages.
 Merchant-Transactions:PageSize: The maximum number of objects to be returned is between 1 and 200.
@@ -59,7 +63,6 @@ Merchant-Transactions:TotalAmount: The total amount for valid transactions in th
 Merchant-Transactions:TotalCount: The total count of transactions in the query.
 Merchant-Transactions:TotalPages: The maximum number of pages in the results. This property is used for pagination control along with **PageNumber**.
 Merchant-Transactions:Transactions: List of transactions.
-Payment:Amount: The total value paid by the payment method.
 Payment-Cancel:CardsDetail-Amount: The amount to be canceled for the related payment transaction.
 Payment-Cancel:CardsDetail-Data: Any additional data used to refer to the card.
 Payment-Cancel:CardsDetail: List of card details that are going to be canceled in the payment transaction.
@@ -80,9 +83,9 @@ Payment-Init:AntiFraud-IsVIPClient: States if this customer should be treated di
 Payment-Init:AntiFraud-LoginCredential: The username used to login (when logged in).
 Payment-Init:AntiFraud-MinutesChargedInLast30Days: The number of minutes charged to a prepaid phone number in the last 30 days.
 Payment-Init:AntiFraud-PhoneChargesInLast30Days: The number of recharges made to a prepaid phone number in the last 30 days.
-Payment-Init:AntiFraud: This object holds specific anti-fraud data.
 Payment-Init:AntiFraud-WasAccountModified: If the account has been modified.
 Payment-Init:AntiFraud-WasCardChanged: States if the customer has attempted to buy this order with a different card before.
+Payment-Init:AntiFraud: This object holds specific anti-fraud data.
 Payment-Init:BillingInfo-Number: The billing info's number or identifier.
 Payment-Init:Customer-Data: Any additional data used to refer to the customer.
 Payment-Init:Customer-DaysSinceFirstPurchase: Days since customer's first purchase date.
@@ -100,20 +103,20 @@ Payment-Init:FrontData-AcceptHeader: It is required when using 3DS.
 Payment-Init:FrontData-CookiesAccepted: It is required when using 3DS.
 Payment-Init:FrontData-IpAddress: The ip address of the current session.
 Payment-Init:FrontData-SessionId: A fingerprint ID produced by the anti-fraud being used.
-Payment-Init:FrontData: This object contains data that must be extracted from the frontend of the checkout page.
 Payment-Init:FrontData-UserAgent: It is required when using 3DS.
+Payment-Init:FrontData: This object contains data that must be extracted from the frontend of the checkout page.
 Payment-Init:PartnerUniqueId: Your unique ID for the order. It is used to track the order.
 Payment-Init:PaymentData-Amount: Total order amount.
 Payment-Init:PaymentData-Countrycode: Two letters ISO country code.
-Payment-Init:PaymentData: Information regarding the payment methods used in this order.
 Payment-Init:PaymentData-PaymentMethods-Amount: The total value charged through this payment method.
 Payment-Init:PaymentData-PaymentMethods-BoletoInfo: Boleto specific information.
 Payment-Init:PaymentData-PaymentMethods-CardInfo: An object that holds credit card payment information.
 Payment-Init:PaymentData-PaymentMethods-Installments: The number of installments requested in this payment method.
-Payment-Init:PaymentData-PaymentMethods: List of payment methods.
 Payment-Init:PaymentData-PaymentMethods-Pix: PIX specific information.
 Payment-Init:PaymentData-PaymentMethods-SoftDescriptor: The descriptor that shows up on the customer's statement after a transaction has been authorized.
+Payment-Init:PaymentData-PaymentMethods: List of payment methods.
 Payment-Init:PaymentData-SalesChannel: Origin of the purchase, e.g., web, app.
+Payment-Init:PaymentData: Information regarding the payment methods used in this order.
 Payment-Init:PaymentItems-Amount: The value of each unit of this payment item.
 Payment-Init:PaymentItems-CategoryId: A numeric category identifier of the item category.
 Payment-Init:PaymentItems-CategoryName: The name of the item category.
@@ -142,24 +145,24 @@ Payment-Init:PaymentMethods-CardInfo-TokenProvider: The name of the tokenization
 Payment-Init:PaymentMethods-CardInfo-TokenSingleUse: Use **0** if it's a previously saved credit card (default). Use **1** if the token was generated for single use.
 Payment-Init:PixInfo-ExpirationSeconds: Validity of the PIX code in seconds.
 Payment-Init:Response-AdditionalInfo: Any additional data used to refer to the payment method.
+Payment-Init:Response-CryptoInfo-Coin: The crypto currency that is being used in the payment transaction.
 Payment-Init:Response-CryptoInfo-CoinAddr: 'The \"copy and paste\" hash code related with this payment transaction.'
 Payment-Init:Response-CryptoInfo-CoinQRCodeUrl: The URL of the QRcode image of this payment transaction.
 Payment-Init:Response-CryptoInfo-CoinRateCurrency: The rate currency of the crypto currency for the payment transaction.
-Payment-Init:Response-CryptoInfo-Coin: The crypto currency that is being used in the payment transaction.
 Payment-Init:Response-CryptoInfo-CoinValue: The amount for the payment transaction in the requested crypto currency.
 Payment-Init:Response-CryptoInfo: Specific information related to payment with crypto currencies.
 Payment-Init:Response-MethodKey: Method identifier at Tuna.
-Payment-Init:Response-Methods: An object containing all payment methods employed to perform the payment. For large purchases, a customer may use multiple credit cards, PIX, or, Boleto to complete the payment. As such, each method with its status is included in the response.
 Payment-Init:Response-Methods-MethodId: A unique ID that identifies the payment method within the overall payment. For instance, if two payment methods were used in a given transaction, they will have IDs 0 and 1. In the next transaction, if three payment methods were used, they would have  IDs 0, 1, and 2.
 Payment-Init:Response-Methods-MethodType: A code that indicates the type of payment method. Possible values are found at [payment methods reference table](/api/tuna-codes#payment-methods).
 Payment-Init:Response-Methods-Status: The overall status of a payment. Please refer to the [payment status reference table](/api/tuna-codes#payment-status).
+Payment-Init:Response-Methods: An object containing all payment methods employed to perform the payment. For large purchases, a customer may use multiple credit cards, PIX, or, Boleto to complete the payment. As such, each method with its status is included in the response.
 Payment-Init:Response-OperationId: Operation identifier at Tuna.
 Payment-Init:Response-PaymentKey: The unique payment transaction identifier generated by Tuna.
-Payment-Init:Response-PixInfo: PIX specific information.
 Payment-Init:Response-PixInfo-QrContent: A string containing the value of the QRcode so it can be copied and pasted.
 Payment-Init:Response-PixInfo-QrImage: A string containing the base64 encoded QRcode image.
-Payment-Init:Response-RedirectInfo: Redirect information.
+Payment-Init:Response-PixInfo: PIX specific information.
 Payment-Init:Response-RedirectInfo-Url: Link URL to be able to finish the payment transaction.
+Payment-Init:Response-RedirectInfo: Redirect information.
 Payment-Init:TokenSession: 'Required only for payment with **credit card**. Here use the **sessionId** created at the [Token API endpoint \"New Session\" method.](/api/token#operation/NewSession)'
 Payment-Init:Vendor-Code: 'Commercial establishment of the vendor(\"EC\" in Brazil).'
 Payment-Init:Vendor-DaysSinceFirstSell: Days since vendor's first sale (for marketplaces).
@@ -167,19 +170,21 @@ Payment-Init:Vendor-DaysSinceLastSell: Days since vendor's last sale (for market
 Payment-Init:Vendor-DaysSinceRegistration: Days since vendor's registration (for marketplaces).
 Payment-Init:Vendor-Industry: The activity of the vendor.
 Payment-Init:Vendor: This object is used to pass on **vendor data**. This is mainly used for fraud prevention.
+Payment-Status:PaymentKey: The unique transaction ID generated by the payment gateway. To request the transaction status, you must either include the ID from the client platform or the ID from the payment gateway. If you provide both and they correspond to different transactions, an error will result.
+Payment-Status:StatusDescription: The text description related with payment status code given by the property **status**.
+Payment:Amount: The total value paid by the payment method.
 Payment:PaymentDate: The datetime of the payment.
+Payment:PaymentDatetime: Put a description here.
 Payment:PaymentId: The unique ID for the transaction generated by the payment gateway. In order to request a transaction's status, you must either include the ID from the client platform, OR the ID from the payment gateway. If you provide both and they correspond to different transactions, an error will result.
 Payment:PaymentMethodTypeId: A code that indicates the type of payment method. Possible values are found at [payment methods reference table](/api/tuna-codes#payment-methods).
 Payment:PaymentStatus: The status of the payment method. Please refer to the [payment method status table](/api/tuna-codes#payment-method-status).
-Payment-Status:PaymentKey: The unique transaction ID generated by the payment gateway. To request the transaction status, you must either include the ID from the client platform or the ID from the payment gateway. If you provide both and they correspond to different transactions, an error will result.
-Payment-Status:StatusDescription: The text description related with payment status code given by the property **status**.
-Token-Generate:Card: An object that holds credit card payment information.
+Token-Generate:Card-CVV: CVV number of the card as printed on the credit card.
 Token-Generate:Card-CardHolderName: Name of the cardholder as printed on the credit card.
 Token-Generate:Card-CardNumber: Number of the card as printed on the credit card.
-Token-Generate:Card-CVV: CVV number of the card as printed on the credit card.
 Token-Generate:Card-ExpirationMonth: Two digits are used to represent the expiration month of the card.
 Token-Generate:Card-ExpirationYear: Four digits are used to represent the expiration year of the card.
 Token-Generate:Card-SingleUse: Use **false** if it's a previously saved credit card (default). Use **true** if the token was generated for single use.
+Token-Generate:Card: An object that holds credit card payment information.
 Token-Generate:Response-Brand: The brand of the credit card.
 Token-Generate:Response-Token: An irreversible token used to represent the credit card.
 Token-Generate:Response-ValidFor: The time in seconds where the CVV is valid in our servers. After this time, the CVV is discarded for PCI security reasons.
@@ -207,12 +212,15 @@ Tuna:CountryId: Numeric code for the country where the financial transaction occ
 Tuna:Document: Document ID.
 Tuna:DocumentType: 'Document ID type (pt-br: can be either \"CPF\" or \"CNPJ\"; can also be \"SSN\" or other types).'
 Tuna:Email: Email.
+Tuna:FirstName: Put a description here.
+Tuna:Id: Put a description here.
+Tuna:LastName: Put a description here.
 Tuna:MccCode: Merchant Category Code (MCC).
-Tuna:Message: An object that contains the message fields.
 Tuna:Message-Code: Numeric code that states if the execution was successful or not. Positive numbers mean success; negative numbers indicate failures. Please refer to the [message code table](/api/tuna-codes#message-code-list) for a detailed list of all possible values.
 Tuna:Message-Info: When available, info gives further information about the execution of the process. This shouldn't matter for treating this response but can help dig information afterward. For example, it might contain internal messages from a payment method.
 Tuna:Message-Message: A human readable message that gives details about what the code means.
 Tuna:Message-Source: 'It is used to track the source of the message. Possible values are: <ol><li>\"Engine\"</li> <li>\"AntiFraud\"</li> <li>\"Gateway\"</li> <li>\"Customization\"</li> </ol>'
+Tuna:Message: An object that contains the message fields.
 Tuna:Name: Full name.
 Tuna:Phone: A string containing the phone number.
 Tuna:WebsiteUrl: Website URL.
